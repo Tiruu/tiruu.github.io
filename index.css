@@ -10,8 +10,15 @@
     left: 0;
     z-index: 0; /* To make sure it's below the rest */
     opacity: 0.3;
-    background-attachment: fixed;
     height: 100vh;
+    background-attachment: fixed;
+}
+
+@media (max-width: 600px) {
+    #background {
+        background-attachment: scroll;
+        height: auto;
+    }
 }
 
 body {
