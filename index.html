@@ -45,19 +45,24 @@
         </footer>
     </body>
     <script>
-        // JavaScript
-        function adjustBackgroundHeight() {
+        document.addEventListener("DOMContentLoaded", function() {
             const background = document.getElementById('background');
-            if (background) {
-                // Set the height of the background to the inner height of the window
-                background.style.height = `${window.innerHeight}px`;
+    
+            function adjustBackground() {
+                // Use vh unit to calculate the visible part of the screen, including when the address bar is visible or not
+                let viewportHeight = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${viewportHeight}px`);
+    
+                // Apply the calculated height as the new height for the background
+                background.style.height = `${viewportHeight * 100}px`;
             }
-        }
-
-        // Adjust the background height on initial load
-        adjustBackgroundHeight();
-
-        // Adjust the background height whenever the window is resized
-        window.addEventListener('resize', adjustBackgroundHeight);
+    
+            // Adjust the background height on initial load
+            adjustBackground();
+    
+            // Adjust the background height whenever the window is resized or orientation changes
+            window.addEventListener('resize', adjustBackground);
+            window.addEventListener('orientationchange', adjustBackground);
+        });
     </script>
 </html>
