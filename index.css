@@ -4,21 +4,14 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     left: 0;
+    bottom: 0;
     z-index: 0; /* To make sure it's below the rest */
     opacity: 0.3;
-    height: 100vh;
-    background-attachment: fixed;
-}
-
-@media (max-width: 600px) {
-    #background {
-        background-attachment: scroll;
-        height: auto;
-    }
+    height: 100%;
 }
 
 body {
@@ -126,7 +119,7 @@ footer {
     color: #fff;
     font-weight: bold;
     width: 100%;
-    opacity: 0.8;
+    z-index: 1;
 }
 
 * {
