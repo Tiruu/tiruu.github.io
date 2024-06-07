@@ -44,4 +44,20 @@
             <p>Copyright 2024 - Lino THEBAULT</></p>
         </footer>
     </body>
+    <script>
+        // JavaScript
+        function adjustBackgroundHeight() {
+            const background = document.getElementById('background');
+            if (background) {
+                // Set the height of the background to the inner height of the window
+                background.style.height = `${window.innerHeight}px`;
+            }
+        }
+
+        // Adjust the background height on initial load
+        adjustBackgroundHeight();
+
+        // Adjust the background height whenever the window is resized
+        window.addEventListener('resize', adjustBackgroundHeight);
+    </script>
 </html>
