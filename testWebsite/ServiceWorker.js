@@ -1,9 +1,9 @@
 const cacheName = "UDSP89-Point_Click-0.1.1";
 const contentToCache = [
-    "Build/siteWeb - Copie.loader.js",
-    "Build/siteWeb - Copie.framework.js.br",
-    "Build/siteWeb - Copie.data.br",
-    "Build/siteWeb - Copie.wasm.br",
+    "Build/testWebsite.loader.js",
+    "Build/testWebsite.framework.js.br",
+    "Build/testWebsite.data.br",
+    "Build/testWebsite.wasm.br",
     "TemplateData/style.css"
 
 ];
