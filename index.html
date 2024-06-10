@@ -44,4 +44,25 @@
             <p>Copyright 2024 - Lino THEBAULT</></p>
         </footer>
     </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const background = document.getElementById('background');
+    
+            function adjustBackground() {
+                // Use vh unit to calculate the visible part of the screen, including when the address bar is visible or not
+                let viewportHeight = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${viewportHeight}px`);
+    
+                // Apply the calculated height as the new height for the background
+                background.style.height = `${viewportHeight * 100}px`;
+            }
+    
+            // Adjust the background height on initial load
+            adjustBackground();
+    
+            // Adjust the background height whenever the window is resized or orientation changes
+            window.addEventListener('resize', adjustBackground);
+            window.addEventListener('orientationchange', adjustBackground);
+        });
+    </script>
 </html>
