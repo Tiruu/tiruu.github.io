@@ -12,9 +12,19 @@ self.addEventListener('install', function (e) {
     console.log('[Service Worker] Install');
     
     e.waitUntil((async function () {
-      const cache = await caches.open(cacheName);
-      console.log('[Service Worker] Caching all: app shell and content');
-      await cache.addAll(contentToCache);
+        const cache = await caches.open(cacheName);
+        console.log('[Service Worker] Caching all: app shell and content');
+        for (let resource of contentToCache) {
+            await fetch(resource).then(response => {
+                if (response.ok) {
+                    cache.put(resource, response);
+                } else {
+                    console.error(`[Service Worker] Error caching ${resource}: ${response.statusText}`);
+                }
+            }).catch(error => {
+                console.error(`[Service Worker] Fetching failed for ${resource}: ${error}`);
+            });
+        }
     })());
 });
 
