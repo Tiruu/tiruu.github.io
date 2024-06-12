@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'header.html'; ?>
     <main style="z-index:1;">
         <div class="separator"></div>
         <div class="mainText">
@@ -8,21 +8,21 @@
             <h3>Feel free to reach out for me if you like what i do !</h3>
         </div>
         <section class="cards">
-            <a href="models.php" class="card">
+            <a href="models.html" class="card">
                 <img src="images/placeholder1.png" alt="3D Models">
                 <h3>3D Models</h3>
                 <p>Explore my 3D modeling work</p>
             </a>
-            <a href="games.php" class="card">
+            <a href="games.html" class="card">
                 <img src="images/placeholder2.png" alt="Games">
                 <h3>My Games</h3>
                 <p>Check out my latest game creations</p>
             </a>
-            <a href="projects.php" class="card">
+            <a href="projects.html" class="card">
                 <img src="images/placeholder3.png" alt="Projects">
                 <h3>Profesionnal Projects</h3>
                 <p>Get a look at my real projects</p>
             </a>
         </section>
     </main>
-<?php include 'footer.php'; ?>
+<?php include 'footer.html'; ?>

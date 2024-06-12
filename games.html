@@ -9,7 +9,7 @@
     <body>
         <div id="background"></div>
         <header class="smol">
-            <a href="index.php"><img src="images/icons/lino-pfp.png" alt="Image de Lino Thebault"></a>
+            <a href="index.html"><img src="images/icons/lino-pfp.png" alt="Image de Lino Thebault"></a>
             <div>
                 <h1>Tiruu - Lino Thebault</h1>
                 <h2>Indie Game Developer</h2>

@@ -2,7 +2,7 @@
 Options -Indexes
 
 # Set the default index file
-DirectoryIndex index.php
+DirectoryIndex index.html
 
 # Redirect 403 errors to the index page
-ErrorDocument 403 index.php
+ErrorDocument 403 index.html

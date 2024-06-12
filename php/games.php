@@ -1,4 +1,4 @@
-<?php include 'header-smol.php'; ?>
+<?php include 'header-smol.html'; ?>
 
 <main style="z-index:1;">
     <div class="separator"></div>
@@ -18,5 +18,5 @@
     </section>
 </main>
 
-<?php include 'footer.php'; ?>
+<?php include 'footer.html'; ?>
 

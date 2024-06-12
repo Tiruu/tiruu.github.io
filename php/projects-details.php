@@ -1,8 +1,8 @@
-<?php include 'header-smol.php'; ?>
+<?php include 'header-smol.html'; ?>
 <?php
 if (isset($_GET['id'])) {
     $projectId = preg_replace('/[^a-zA-Z0-9_-]/', '', $_GET['id']); // Sanitize input
-    $filePath = "projects/{$projectId}.php";
+    $filePath = "projects/{$projectId}.html";
 
     if (file_exists($filePath)) {
         include $filePath;
@@ -13,4 +13,4 @@ if (isset($_GET['id'])) {
     echo "No model specified.";
 }
 ?>
-<?php include 'footer.php'; ?>
+<?php include 'footer.html'; ?>
