@@ -1,0 +1,8 @@
+# Prevent directory browsing
+Options -Indexes
+
+# Set the default index file
+DirectoryIndex index.php
+
+# Redirect 403 errors to the index page
+ErrorDocument 403 index.php
