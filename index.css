@@ -20,7 +20,7 @@
     top: 0;
     z-index: 0; /* To make sure it's below the rest */
     opacity: 1;
-    height: 100%; /* Adjusted to ensure full coverage */
+    height: 120%; /* Adjusted to ensure full coverage */
     width: 100%;
     min-height: 100vh; /* Ensures it covers the full viewport height */
 }
