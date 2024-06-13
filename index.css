@@ -293,6 +293,11 @@ main {
         flex-direction: column; /* Stack elements vertically */
     }
 
+    .footer-links a{
+        justify-content:start;
+        margin:10px;
+    }
+
     .card, .image-mosaic img {
         width: 90%; /* Make cards and mosaic images take up more width on small screens */
         margin: 10px auto; /* Center cards with automatic horizontal margins */
