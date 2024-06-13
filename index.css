@@ -160,7 +160,7 @@ main {
     margin:20px;
     width: 100%; /* Full width of the container */
     height: 20px; /* Adjust height as needed */
-    background-image: url('images/graphics/border.png'); /* Path to your image */
+    background-image: url('images/graphics/border.webp'); /* Path to your image */
     background-repeat: repeat-x; /* Repeat image horizontally */
     background-size: contain; /* Ensures image scales to fit height */
     z-index: 1;

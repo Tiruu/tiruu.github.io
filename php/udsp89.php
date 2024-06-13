@@ -15,11 +15,11 @@
     </div>
 
     <section class="image-mosaic">
-        <img src="images/projects/udsp89/blenderScreen.png" alt="Description 3">
-        <img src="images/projects/udsp89/unityScreen.png" alt="Description 2">
-        <img src="images/projects/udsp89/webScreen.png" alt="Description 5">
-        <img src="images/projects/udsp89/SceneSPORT.png" alt="Description 4">
-        <img src="images/projects/udsp89/SceneDPS.png" alt="Description 1">
+        <img src="images/projects/udsp89/blenderScreen.webp" alt="Description 3">
+        <img src="images/projects/udsp89/unityScreen.webp" alt="Description 2">
+        <img src="images/projects/udsp89/webScreen.webp" alt="Description 5">
+        <img src="images/projects/udsp89/SceneSPORT.webp" alt="Description 4">
+        <img src="images/projects/udsp89/SceneDPS.webp" alt="Description 1">
         <!-- Add more images as needed -->
     </section>
 
