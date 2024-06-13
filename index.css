@@ -265,3 +265,54 @@ main {
 * {
     box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
+
+/* General Styles (Already provided) */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+
+    header, .header.smol {
+        font-size: 0.8em;
+    }
+
+    header, .header.smol {
+        flex-direction: column; /* Stack elements vertically on small screens */
+        margin-top: 20px;
+    }
+
+    header img, .header.smol img {
+        width: 100px; /* Adjust image size for smaller screens */
+        height: 100px;
+        margin: 20px;
+    }
+
+    .mainText, .cards, .project-header, .footer-links {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .card, .image-mosaic img {
+        width: 90%; /* Make cards and mosaic images take up more width on small screens */
+        margin: 10px auto; /* Center cards with automatic horizontal margins */
+    }
+
+    .card img{
+        width: 50%;
+        height: auto;
+    }
+
+    .project-title img {
+        height: 150px; /* Adjust project title image size */
+    }
+
+    .separator, .project-description, main {
+        width: 95%; /* Adjust width to provide more space */
+        margin: auto; /* Center content */
+    }
+
+    footer {
+        padding: 20px 10px; /* Adjust footer padding */
+    }
+}
