@@ -8,20 +8,21 @@
 /* CSS */
 #background {
     background-image: url(images/graphics/totk-fond-bis.webp);
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-    background-position:center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* Changed from fixed to scroll */
+    background-position: center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    position: fixed;
+    position: absolute; /* Changed from fixed to absolute */
     left: 0;
     top: 0;
     z-index: 0; /* To make sure it's below the rest */
     opacity: 1;
-    height: 100vh;
+    height: 100%; /* Adjusted to ensure full coverage */
     width: 100%;
+    min-height: 100vh; /* Ensures it covers the full viewport height */
 }
 
 body {
