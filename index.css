@@ -31,6 +31,9 @@ body {
     z-index: 1;
     overflow-x: hidden;
     font-size: 1.2em;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 header {
