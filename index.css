@@ -18,7 +18,7 @@
     bottom: 0;
     z-index: 0; /* To make sure it's below the rest */
     opacity: 1;
-    height: 100vh;
+    height: 120%;
 }
 
 body {
@@ -31,9 +31,6 @@ body {
     z-index: 1;
     overflow-x: hidden;
     font-size: 1.2em;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
 }
 
 header {
@@ -266,6 +263,9 @@ main {
 }
 
 * {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
