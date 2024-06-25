@@ -4,11 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Game Developer Portfolio</title>
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="../index.css">
     </head>
     <body>
-        <div id="background"></div>
+        
         <header>
+            <div id="background"></div>
             <a href="index.html"><img src="images/icons/lino-pfp.webp" alt="Image de Lino Thebault"></a>
             <h1>Tiruu - Lino Thebault</h1>
             <h2>Indie Game Developer</h2>

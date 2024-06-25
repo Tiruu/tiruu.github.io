@@ -1,49 +1,46 @@
 @font-face {
-    font-family: 'Barlow';
-    src: url('fonts/Barlow/Barlow-Medium.ttf') format('truetype');
-    font-weight: 500; /* Black is typically the heaviest font weight */
+    font-family: 'Triforce';
+    src: url('fonts/triforce/triforce.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
 }
 
-/* CSS */
-#background {
-    background-image: url(images/graphics/totk-fond-bis.webp);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 0; /* To make sure it's below the rest */
-    opacity: 1;
-    height: 120%;
-}
-
 body {
-    font-family: "Barlow", sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    color: #00eeff;
+    color: black;
     z-index: 1;
     overflow-x: hidden;
     font-size: 1.2em;
 }
 
 header {
-    margin-top:50px;
     text-align: center;
     z-index: 1;
+    background-image: url(images/graphics/totk-fond-bis.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #00eeff;
 }
 
 header h1 {
+    font-family: 'Triforce', sans-serif;
+    letter-spacing: 0.15em;
     margin: 10px 0;
 }
 
 header h2 {
+    font-family: 'Triforce', sans-serif;
+    letter-spacing: 0.15em;
     margin: 10px 0;
 }
 
@@ -56,6 +53,7 @@ header img{
     height: 150px;
     border-radius: 50%;
     margin: 20px;
+    margin-top: 70px;
     box-shadow: 0px 0px 20px rgba(0, 247, 255, 0.5), 0 0 0 10px rgba(0, 247, 255, 1);
     background-color: #00eeff;
     transition: transform 1s ease, box-shadow 0.5s ease;
@@ -71,7 +69,6 @@ header.smol{
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    margin-top: 20px;
     text-align: start;
 }
 
@@ -80,6 +77,7 @@ header.smol img{
     height: 100px;
     border-radius: 50%;
     margin: 40px;
+    margin-top: 70px;
     box-shadow: 0px 0px 20px rgba(0, 247, 255, 0.5), 0 0 0 8px rgba(0, 247, 255, 1); /* Add an outer box-shadow to mimic the border */
     background-color: #00eeff;
     transition: transform 1s ease, box-shadow 0.5s ease;
@@ -91,12 +89,16 @@ header.smol img:hover{
 }
 
 main {
+    background-image: url(images/graphics/totk-fond-blanc.webp);
+    background-size:auto;
+    background-position: right;
+    background-repeat:repeat-y;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: auto;
-    width: 80%;
+    width: 100%;
     z-index: 1;
 }
 
@@ -125,11 +127,11 @@ main {
     width: 400px;
     height: auto;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+    box-shadow: 0 0 10px rgba(186, 157, 101, 0.5);
     border-radius: 10px;
     overflow: hidden;
     text-decoration: none;
-    color: #00eeff;
+    color: black;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects */
 }
 
@@ -142,14 +144,16 @@ main {
     border-radius: 5%;
 }
 
-.card h2, .card p {
+.card h3, .card p {
+    font-family: 'Triforce', sans-serif;
+    letter-spacing: 0.15em;
     margin: 10px;
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    background-color: rgba(0, 247, 255, 0.5);
+    background-color: rgba(186, 157, 101, 0.5);
 }
 
 .card:hover img {
@@ -157,9 +161,9 @@ main {
 }
 
 .separator {
-    margin:20px;
     width: 100%; /* Full width of the container */
     height: 20px; /* Adjust height as needed */
+    margin: 20px;
     background-image: url('images/graphics/border.webp'); /* Path to your image */
     background-repeat: repeat-x; /* Repeat image horizontally */
     background-size: contain; /* Ensures image scales to fit height */
@@ -248,11 +252,15 @@ main {
 }
 
 footer {
+    background-image: url(images/graphics/totk-fond-bis.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     position: relative;
     text-align: center;
     padding-top: 20px;
-    background-color: rgba(10, 10, 10, 0.6);
-    color: #fff;
+    color: #00eeff;
     font-weight: bold;
     width: 100%;
     z-index: 1;
@@ -283,13 +291,13 @@ main {
 
     header, .header.smol {
         flex-direction: column; /* Stack elements vertically on small screens */
-        margin-top: 20px;
     }
 
     header img, .header.smol img {
         width: 100px; /* Adjust image size for smaller screens */
         height: 100px;
         margin: 20px;
+        margin-top: 50px;
     }
 
     .mainText, .cards, .project-header, .footer-links {
@@ -313,11 +321,6 @@ main {
 
     .project-title img {
         height: 150px; /* Adjust project title image size */
-    }
-
-    .separator, .project-description, main {
-        width: 95%; /* Adjust width to provide more space */
-        margin: auto; /* Center content */
     }
 
     footer {
