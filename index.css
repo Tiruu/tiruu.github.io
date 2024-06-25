@@ -14,6 +14,7 @@ body {
     color: black;
     z-index: 1;
     overflow-x: hidden;
+    overflow: overlay;
     font-size: 1.2em;
 }
 
