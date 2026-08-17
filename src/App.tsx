@@ -117,7 +117,10 @@ function App() {
           </a>
         </nav>
 
-        <a className="header-link" href="/downloadable/resume.pdf">
+        <a
+          className="header-link"
+          href="/downloadable/CV_THEBAULT_Lino_2026.pdf"
+        >
           CV <Icon name="arrow" />
         </a>
       </header>
@@ -133,19 +136,16 @@ function App() {
             </p>
 
             <h1>
-              Je crée des
+              Développeur de tout,
               <br />
-              <em>jeux, outils</em>
-              <br />
-              et expériences.
+              <em>surtout d'expérience</em>
             </h1>
 
             <p className="hero-intro">
-              Développeur issu d’un parcours GameWeb, je construis des jeux
-              vidéo, des expériences interactives et des applications web. Le
-              développement de jeux est mon objectif à long terme, tandis que
-              mes compétences web et informatiques me permettent aujourd’hui de
-              répondre à des projets professionnels variés.
+              Game developer dans l’âme, développeur web par curiosité et
+              bricoleur de projets en tout genre. J’aime comprendre comment les
+              choses fonctionnent, les casser un peu, puis essayer de les rendre
+              meilleures.
             </p>
 
             <div className="hero-actions">
@@ -160,7 +160,7 @@ function App() {
 
             <div className="hero-facts">
               <span>Écommoy · France</span>
-              <span>Unity · Godot · C#</span>
+              <span>Unity · Godot · C# · GDScript</span>
               <span>Web · React · TypeScript</span>
             </div>
           </div>
@@ -192,9 +192,9 @@ function App() {
               </div>
 
               <h2>
-                Je crée des jeux,
+                Je fais des jeux,
                 <br />
-                <em>je teste des idées.</em>
+                <em>parce que c'est quand-même bien marrant.</em>
               </h2>
             </div>
 
@@ -207,10 +207,9 @@ function App() {
           </div>
 
           <p className="creative-intro">
-            Le jeu vidéo est au cœur de mon parcours et de ce que je souhaite
-            développer à long terme. J’aime prototyper des mécaniques,
-            expérimenter avec le gameplay et transformer une idée en expérience
-            jouable.
+            Entre deux projets web et quelques bugs existentiels, je continue de
+            fabriquer des petits jeux. Certains sont sérieux. D'autres beaucoup
+            moins. Ils sont tous jouables sur itch.io.
           </p>
 
           <div className="game-grid">
@@ -252,15 +251,17 @@ function App() {
 
           <div className="section-title-row">
             <h2>
-              Des idées qui
+              Des projets qui
               <br />
-              deviennent des <em>outils.</em>
+              ont commencé par
+              <br />
+              <em>« tiens, ce serait cool si… »</em>
             </h2>
 
             <p>
-              Mes projets web et personnels montrent une autre facette de mon
-              profil : analyser un besoin, apprendre une technologie et
-              construire une solution fonctionnelle.
+              Une sélection de projets personnels et professionnels :
+              applications, prototypes, outils maison et autres idées qui ont
+              fini par devenir du code.
             </p>
           </div>
 
@@ -318,21 +319,26 @@ function App() {
             </div>
 
             <h2>
-              Le jeu passe aussi
+              Parce qu'un jeu,
               <br />
-              par le <em>visuel.</em>
+              ça doit aussi
+              <br />
+              <em>avoir une gueule.</em>
             </h2>
 
             <p>
-              Modélisation 3D, création d’assets, environnements et
-              expérimentations graphiques font partie de mon parcours GameWeb.
+              Je passe aussi pas mal de temps de l’autre côté du code :
+              modélisation 3D, création d’assets, environnements et
+              expérimentations visuelles. Je ne prétends pas être un artiste
+              avant tout, mais j’aime pouvoir fabriquer moi-même ce dont mes
+              jeux ont besoin.
             </p>
 
             <ExternalLink
               className="big-link"
               href="https://www.artstation.com/tiruu"
             >
-              Voir mon ArtStation <Icon name="arrow" />
+              Jeter un oeil à mon ArtStation <Icon name="arrow" />
             </ExternalLink>
           </div>
 
@@ -352,40 +358,44 @@ function App() {
 
           <div className="about-grid">
             <h2>
-              Un profil hybride,
+              Je touche à beaucoup de choses.
               <br />
-              avec le jeu vidéo
+              J'essaie surtout de comprendre
               <br />
-              comme <em>objectif.</em>
+              <em>ce que je fais.</em>
             </h2>
 
             <div className="about-copy">
               <p>
-                Mon parcours a commencé autour du jeu vidéo, de la 3D et du
-                développement web. Ma formation GameWeb m’a permis de travailler
-                sur des projets mêlant programmation, création visuelle et
-                conception d’expériences interactives.
+                J’ai commencé à bidouiller autour du jeu vidéo, de la 3D et du
+                web, et finalement je suis resté accro à l’idée de créer des
+                choses moi-même. Ma formation GameWeb m’a permis de toucher à
+                tout ça : programmation, game design, création 3D et
+                développement d’expériences interactives.
               </p>
 
               <p>
-                J’ai ensuite développé des outils répondant à des besoins
-                concrets, notamment chez VandB avec une application locale de
-                gestion des réservations développée en HTML, CSS, JavaScript,
-                PHP et SQL.
+                J’aime surtout partir d’une idée ou d’un problème et voir
+                jusqu’où je peux aller avec. Chez VandB, par exemple, j’avais
+                besoin d’un outil pour mieux gérer les réservations de tireuses.
+                Alors je l’ai développé moi-même en HTML, CSS, JavaScript, PHP
+                et SQL, avec une base de données locale sous XAMPP.
               </p>
 
               <p>
-                Plus récemment, j’ai développé une application cartographique
-                avec React, TypeScript, Supabase et MapLibre, ce qui m’a permis
-                d’approfondir mes compétences en développement web moderne,
-                gestion de données et déploiement.
+                Plus récemment, je me suis lancé dans une application
+                cartographique avec React, TypeScript, Supabase et MapLibre.
+                C’est un projet qui m’a permis de sortir de ma zone de confort,
+                de découvrir de nouvelles technologies et surtout de me
+                confronter à un projet qui grandit beaucoup plus vite que prévu.
               </p>
 
               <p>
-                Je recherche aujourd’hui des opportunités en informatique et
-                développement web, tout en continuant à développer mes projets
-                de jeux vidéo avec l’objectif de me lancer progressivement comme
-                développeur indépendant.
+                Aujourd’hui, je cherche un poste en informatique ou
+                développement web pour continuer à apprendre et gagner en
+                expérience, tout en gardant le jeu vidéo au centre de mes
+                projets personnels. À terme, mon objectif est de pouvoir en
+                faire mon activité et me lancer comme développeur indépendant.
               </p>
             </div>
           </div>
@@ -447,6 +457,9 @@ function App() {
 
       <footer>
         <span>© {new Date().getFullYear()} Lino Thebault · Tiruu</span>
+        <span>
+          Fait avec un peu de code, une pincée de bugs, et beaucoup de fun.
+        </span>
 
         <a href="#top">Retour en haut ↑</a>
       </footer>

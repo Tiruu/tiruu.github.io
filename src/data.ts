@@ -11,11 +11,12 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Ultra Auxerre Map",
+    title:
+      "Ultra Auxerre Map — Parce qu'une carte, c'était apparemment trop simple.",
     eyebrow: "Projet personnel · Application web",
     year: "2026",
     description:
-      "Application cartographique communautaire développée de bout en bout pour référencer des points d’intérêt, gérer les profils et contributions, et expérimenter une application web moderne avec base de données.",
+      "Un projet personnel parti d'une idée assez simple : cartographier des points d'intérêt. Puis il y a eu les comptes utilisateurs. Puis les contributions. Puis les confirmations. Puis Supabase. Puis React. Bref, la petite carte a légèrement dégénéré.",
     technologies: [
       "React",
       "TypeScript",
@@ -36,11 +37,11 @@ export const projects: Project[] = [
   },
 
   {
-    title: "Gestion des réservations VandB",
+    title: "VandB — J'avais besoin d'un outil. Alors je l'ai fait.",
     eyebrow: "Projet professionnel · Outil métier",
     year: "2024–2026",
     description:
-      "Application développée en local pour répondre à un besoin concret du magasin : centraliser le suivi des réservations de tireuses, améliorer la gestion du flux et faciliter le suivi des équipements en attendant la solution de la centrale.",
+      "La centrale devait fournir un outil de gestion des réservations de tireuses. En attendant, j'ai développé le mien. HTML, CSS, JavaScript, PHP et SQL, le tout en local avec XAMPP. Résultat : un suivi plus clair des réservations, un meilleur contrôle du matériel et moins de gymnastique avec les fichiers Excel.",
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "SQL", "XAMPP"],
     image: "/assets/project-vandb.svg",
     featured: true,
@@ -136,7 +137,7 @@ export const games = [
 
   {
     title: "Me When",
-    text: "Un Rogue-like like, avec une mécanique de chnagement de perspective pour deux fois plus de fun.",
+    text: "Un Rogue-like like, avec une mécanique de changement de perspective pour deux fois plus de fun.",
     tags: ["Unity", "C#", "Blender", "1 joueurs"],
     href: "https://tiruuslow.itch.io/me-when",
     image: "/assets/when.png",
