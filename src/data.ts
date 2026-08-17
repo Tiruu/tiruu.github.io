@@ -25,12 +25,12 @@ export const projects: Project[] = [
       "Docker",
       "GitHub",
     ],
-    image: "/assets/project-map.svg",
+    image: "/assets/project-map.png",
     featured: true,
     links: [
       {
-        label: "GitHub",
-        href: "https://github.com/Tiruu",
+        label: "Lien",
+        href: "https://ultra-auxerre-map.vercel.app",
       },
     ],
   },
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     description:
       "Création d’un jeu vidéo interactif pour l’Union Départementale des Sapeurs-Pompiers de l’Yonne. Développement du jeu, création d’éléments 3D et réalisation du site web associé.",
     technologies: ["Unity", "C#", "Blender", "HTML", "CSS", "JavaScript"],
-    image: "/assets/project-udsp.svg",
+    image: "/assets/project-udsp.png",
     links: [
       {
         label: "Voir le projet",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     description:
       "Participation au développement d’un jeu vidéo sur navigateur avec la création de scènes et de séquences destinées à introduire de nouvelles parties du gameplay.",
     technologies: ["HTML", "CSS", "JavaScript", "Git", "GitHub"],
-    image: "/assets/project-exode.svg",
+    image: "/assets/project-exode.png",
   },
 ];
 
@@ -123,6 +123,7 @@ export const games = [
     text: "Un petit jeu de pêche pensé comme une side-quest devenue le jeu entier. Un projet court autour du gameplay, de l’ambiance et de l’expérimentation.",
     tags: ["Godot", "GDScript", "Blender", "Aseprite"],
     href: "https://tiruuslow.itch.io/fish",
+    image: "/assets/fish.png",
   },
 
   {
@@ -130,6 +131,15 @@ export const games = [
     text: "Un jeu de course de mechas réalisé avec une direction artistique inspirée des jeux de l’ère N64.",
     tags: ["Unity", "C#", "3D", "Game Jam"],
     href: "https://tiruuslow.itch.io/mobile-suit-highway",
+    image: "/assets/mech.png",
+  },
+
+  {
+    title: "Me When",
+    text: "Un Rogue-like like, avec une mécanique de chnagement de perspective pour deux fois plus de fun.",
+    tags: ["Unity", "C#", "Blender", "1 joueurs"],
+    href: "https://tiruuslow.itch.io/me-when",
+    image: "/assets/when.png",
   },
 
   {
@@ -137,6 +147,7 @@ export const games = [
     text: "Un duel local à deux joueurs dans un Far West low-poly, basé sur la rapidité de réaction et les mots.",
     tags: ["Unity", "C#", "Blender", "2 joueurs"],
     href: "https://tiruuslow.itch.io/duel-au-feur-west",
+    image: "/assets/west.png",
   },
 
   {
@@ -144,5 +155,6 @@ export const games = [
     text: "Projet réalisé dans le cadre de la Scientific Game Jam de Nancy, avec les contraintes et le travail en équipe propres au format game jam.",
     tags: ["Unity", "C#", "Game Jam"],
     href: "https://tiruuslow.itch.io/ph2om",
+    image: "/assets/phom.png",
   },
 ];

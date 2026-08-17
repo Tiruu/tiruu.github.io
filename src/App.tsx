@@ -167,7 +167,7 @@ function App() {
 
           <div className="hero-side">
             <div className="portrait-frame">
-              <img src="/assets/avatar.svg" alt="Portrait de Lino Thebault" />
+              <img src="/assets/avatar.jpg" alt="Portrait de Lino Thebault" />
             </div>
 
             <div className="side-note">
@@ -221,6 +221,7 @@ function App() {
                 key={game.title}
               >
                 <div className="game-art">
+                  <img src={game.image} alt={`Screenshot de ${game.title}`} />
                   <span>PLAY</span>
                   <div className="game-scan" />
                 </div>
