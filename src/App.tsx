@@ -136,9 +136,9 @@ function App() {
             </p>
 
             <h1>
-              Développeur de tout,
+              Développeur à mi-temps
               <br />
-              <em>surtout d'expérience</em>
+              <em>Débugueur à plein temps.</em>
             </h1>
 
             <p className="hero-intro">
@@ -343,7 +343,10 @@ function App() {
           </div>
 
           <div className="art-preview">
-            <div className="art-grid" />
+            <img
+              src="/assets/art.png"
+              alt="Création 3D de Lino"
+            />
             <span>3D / GAME ART</span>
           </div>
         </section>

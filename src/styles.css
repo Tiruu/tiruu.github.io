@@ -169,3 +169,35 @@ footer a:hover { color: var(--acid); }
   .contact-card { border-left: 0; border-top: 1px solid var(--line); padding: 25px 0 0; }
   footer { flex-direction: column; gap: 10px; }
 }
+
+.art-preview {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.art-preview img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.art-preview span {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.art-preview img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.art-section:hover .art-preview img {
+  transform: scale(1.04);
+}

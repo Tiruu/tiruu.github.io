@@ -43,7 +43,7 @@ export const projects: Project[] = [
     description:
       "La centrale devait fournir un outil de gestion des réservations de tireuses. En attendant, j'ai développé le mien. HTML, CSS, JavaScript, PHP et SQL, le tout en local avec XAMPP. Résultat : un suivi plus clair des réservations, un meilleur contrôle du matériel et moins de gymnastique avec les fichiers Excel.",
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "SQL", "XAMPP"],
-    image: "/assets/project-vandb.svg",
+    image: "/assets/project-vandb.png",
     featured: true,
   },
 
