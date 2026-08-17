@@ -1,227 +1,138 @@
-import { useEffect, useState } from "react";
-import { projects, skills, socialLinks } from "./data";
+import { useEffect, useState, type ReactNode } from "react";
+import { games, projects, skills, socialLinks } from "./data";
 
-function Icon({ name }: { name: "arrow" | "github" | "linkedin" | "mail" | "external" }) {
+function Icon({ name }: { name: "arrow" | "external" | "mail" | "github" | "menu" }) {
   const paths = {
-    arrow: <><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></>,
-    github: <><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.3 4 5 5 0 0 0 19.2.8S18 0.4 15 2.3a13.4 13.4 0 0 0-6 0C6 0.4 4.8.8 4.8.8A5 5 0 0 0 4.7 4 5.4 5.4 0 0 0 3.2 7.5c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 9 18v4" /><path d="M9 18c-4.5 2-5-2-7-2" /></>,
-    linkedin: <><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></>,
+    arrow: <><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></>,
+    external: <><path d="M14 4h6v6" /><path d="M10 14 20 4" /><path d="M20 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h4" /></>,
     mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>,
-    external: <><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></>,
+    github: <><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.3 4 5 5 0 0 0 19.2.8S18 0.4 15 2.3a13.4 13.4 0 0 0-6 0C6 0.4 4.8.8 4.8.8A5 5 0 0 0 4.7 4 5.4 5.4 0 0 0 3.2 7.5c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 9 18v4" /><path d="M9 18c-4.5 2-5-2-7-2" /></>,
+    menu: <><path d="M4 7h16" /><path d="M4 12h16" /><path d="M4 17h16" /></>,
   } as const;
   return <svg aria-hidden="true" viewBox="0 0 24 24">{paths[name]}</svg>;
 }
 
+function ExternalLink({ href, children, className = "" }: { href: string; children: ReactNode; className?: string }) {
+  return <a className={className} href={href} target="_blank" rel="noreferrer">{children}<Icon name="external" /></a>;
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [filter, setFilter] = useState("Tous");
 
   useEffect(() => {
-    document.title = "Lino Thebault — Développeur Web Junior | Portfolio";
+    document.title = "Lino Thebault — Portfolio";
   }, []);
 
-  const categories = ["Tous", "Web", "Projet professionnel", "Game Dev"];
-  const visibleProjects = projects.filter((project) => {
-    if (filter === "Tous") return true;
-    if (filter === "Web") return project.category.includes("Web");
-    if (filter === "Projet professionnel") return project.category.includes("professionnel");
-    return project.category.includes("Game Dev");
-  });
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="site-shell">
-      <div className="background-grid" aria-hidden="true" />
+    <div className="site-shell" id="top">
+      <div className="noise" aria-hidden="true" />
+      <div className="orb orb-one" aria-hidden="true" />
+      <div className="orb orb-two" aria-hidden="true" />
 
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Retour à l'accueil">
-          <span className="brand-mark">T</span>
-          <span>
-            <strong>Tiruu</strong>
-            <small>Lino Thebault</small>
-          </span>
+        <a className="brand" href="#top" onClick={closeMenu}>
+          <span className="brand-symbol">T</span>
+          <span className="brand-copy"><strong>TIRUU</strong><small>Lino Thebault</small></span>
         </a>
 
-        <button
-          className="menu-toggle"
-          aria-expanded={menuOpen}
-          aria-controls="main-nav"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          Menu
+        <button className="menu-toggle" aria-expanded={menuOpen} aria-label="Ouvrir le menu" onClick={() => setMenuOpen(!menuOpen)}>
+          <Icon name="menu" />
         </button>
 
-        <nav id="main-nav" className={menuOpen ? "nav-open" : ""}>
-          <a href="#about" onClick={() => setMenuOpen(false)}>À propos</a>
-          <a href="#skills" onClick={() => setMenuOpen(false)}>Compétences</a>
-          <a href="#projects" onClick={() => setMenuOpen(false)}>Projets</a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+        <nav className={menuOpen ? "nav-open" : ""}>
+          <a href="#work" onClick={closeMenu}>Projets</a>
+          <a href="#games" onClick={closeMenu}>Jeux</a>
+          <a href="#about" onClick={closeMenu}>À propos</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
         </nav>
 
-        <a className="header-cta" href="/downloadable/resume.pdf">
-          CV <Icon name="arrow" />
-        </a>
+        <a className="header-link" href="/downloadable/resume.pdf">CV <Icon name="arrow" /></a>
       </header>
 
-      <main id="top">
+      <main>
         <section className="hero section">
-          <div className="hero-copy">
-            <p className="eyebrow">TECHNICIEN INFORMATIQUE JUNIOR · DÉVELOPPEUR WEB JUNIOR</p>
-            <h1>Je construis des <span>outils utiles</span> et des expériences interactives.</h1>
-            <p className="hero-text">
-              Diplômé d’un BUT MMI parcours GameWeb, je développe des applications web,
-              des outils répondant à des besoins concrets et des projets de jeu vidéo.
-              J’aime comprendre un problème, trouver une solution et la transformer en produit.
+          <div className="hero-main">
+            <p className="hero-kicker"><span /> Technicien informatique junior · Développeur web junior</p>
+            <h1>Je crée des<br /><em>outils qui servent</em><br />à quelque chose.</h1>
+            <p className="hero-intro">
+              Développeur issu d’un parcours GameWeb, j’aime autant construire une application utile que fabriquer une expérience interactive. Aujourd’hui, je me tourne vers l’IT et le développement web.
             </p>
             <div className="hero-actions">
-              <a className="button primary" href="#projects">Voir mes projets <Icon name="arrow" /></a>
-              <a className="button secondary" href="mailto:lino.thebault@gmail.com">Me contacter <Icon name="mail" /></a>
+              <a className="button button-primary" href="#work">Explorer mes projets <Icon name="arrow" /></a>
+              <a className="button button-ghost" href="mailto:lino.thebault@gmail.com">Me contacter <Icon name="mail" /></a>
             </div>
-            <div className="hero-meta">
-              <span>Écommoy, France</span>
-              <span>Anglais C1 · TOEIC 975</span>
-              <span>Permis B + véhicule</span>
-            </div>
+            <div className="hero-facts"><span>Écommoy · France</span><span>Anglais C1 · TOEIC 975</span><span>Permis B</span></div>
           </div>
-
-          <div className="hero-card">
-            <div className="portrait-frame">
-              <img src="/assets/avatar.svg" alt="Portrait de Lino Thebault" />
-            </div>
-            <div className="status-line"><span className="status-dot" /> Disponible pour un poste junior</div>
+          <div className="hero-side">
+            <div className="portrait-frame"><img src="/assets/avatar.svg" alt="Portrait de Lino Thebault" /></div>
+            <div className="side-note"><span className="signal" /> Disponible pour un poste junior</div>
+            <div className="side-index">01 <span>/</span> 05</div>
           </div>
         </section>
 
-        <section id="about" className="section split-section">
-          <div>
-            <p className="eyebrow">01 · À PROPOS</p>
-            <h2>Un profil hybride entre web, IT et création.</h2>
-          </div>
-          <div className="section-copy">
-            <p>
-              Mon parcours a commencé par le développement de jeux vidéo et la création 3D,
-              puis s’est élargi vers le développement web et la création d’outils pour répondre
-              à des besoins professionnels.
-            </p>
-            <p>
-              Chez VandB, j’ai notamment conçu une application web locale de gestion des
-              réservations de tireuses avec HTML, CSS, JavaScript, PHP et SQL. Plus récemment,
-              j’ai développé une application cartographique avec React, TypeScript, Vite,
-              Supabase et MapLibre.
-            </p>
-            <p>
-              Je recherche aujourd’hui un poste junior dans lequel je peux continuer à progresser,
-              contribuer concrètement et apprendre auprès d’une équipe.
-            </p>
-          </div>
-        </section>
+        <section id="work" className="section work-section">
+          <div className="section-label"><span>02</span><b>PROJETS PERSONNELS & PROFESSIONNELS</b></div>
+          <div className="section-title-row"><h2>Construire.<br /><em>Comprendre.</em> Améliorer.</h2><p>Quelques projets où le code est parti d’un besoin, d’une idée ou d’une envie d’expérimenter.</p></div>
 
-        <section id="skills" className="section">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">02 · COMPÉTENCES</p>
-              <h2>Ce avec quoi je travaille.</h2>
-            </div>
-            <p>Une stack orientée développement web, applications et création interactive.</p>
-          </div>
-
-          <div className="skill-grid">
-            {skills.map((group) => (
-              <article className="skill-card" key={group.title}>
-                <h3>{group.title}</h3>
-                <div className="tag-list">
-                  {group.items.map((item) => <span key={item}>{item}</span>)}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="projects" className="section">
-          <div className="section-heading projects-heading">
-            <div>
-              <p className="eyebrow">03 · PROJETS</p>
-              <h2>Des projets, pas seulement une liste de technologies.</h2>
-            </div>
-            <div className="filters" role="group" aria-label="Filtrer les projets">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  className={filter === category ? "active" : ""}
-                  onClick={() => setFilter(category)}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="project-grid">
-            {visibleProjects.map((project) => (
-              <article className={`project-card ${project.featured ? "featured" : ""}`} key={project.title}>
-                <div className="project-image">
-                  <img src={project.image} alt="" />
-                  <span className="project-year">{project.year}</span>
-                </div>
-                <div className="project-body">
-                  <p className="project-category">{project.category}</p>
+          <div className="project-stack">
+            {projects.map((project, index) => (
+              <article className={`project-card ${project.featured ? "project-featured" : ""}`} key={project.title}>
+                <div className="project-art"><img src={project.image} alt="" /><span className="project-number">0{index + 1}</span></div>
+                <div className="project-content">
+                  <div className="project-topline"><span>{project.eyebrow}</span><span>{project.year}</span></div>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
-                  <div className="tag-list compact">
-                    {project.technologies.map((tech) => <span key={tech}>{tech}</span>)}
-                  </div>
-                  {project.links && (
-                    <div className="project-links">
-                      {project.links.map((link) => (
-                        <a href={link.href} target="_blank" rel="noreferrer" key={link.label}>
-                          {link.label} <Icon name="external" />
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                  <div className="tag-list">{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div>
+                  {project.links && <div className="project-links">{project.links.map((link) => <ExternalLink href={link.href} key={link.label}>{link.label}</ExternalLink>)}</div>}
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="section experience-section">
-          <div>
-            <p className="eyebrow">04 · PARCOURS</p>
-            <h2>Une progression vers le développement professionnel.</h2>
+        <section id="games" className="section creative-section">
+          <div className="creative-head">
+            <div><div className="section-label"><span>03</span><b>CRÉATIONS</b></div><h2>Mes jeux, <em>ailleurs.</em></h2></div>
+            <ExternalLink className="big-link" href="https://tiruuslow.itch.io/">Voir tout sur itch.io <Icon name="arrow" /></ExternalLink>
           </div>
-          <div className="timeline">
-            <article><span>2026</span><div><strong>Projet React personnel</strong><p>Application cartographique avec React, TypeScript, Supabase, MapLibre et Vite.</p></div></article>
-            <article><span>2024–2026</span><div><strong>VandB Auxerre</strong><p>Caviste polyvalent et développement d’un outil web local de gestion des réservations.</p></div></article>
-            <article><span>2024</span><div><strong>UDSP 89</strong><p>Stage de développement, Unity, C#, 3D et création d’un site web.</p></div></article>
-            <article><span>2023</span><div><strong>Disruptive AI</strong><p>Stage de développement web et création de scènes pour EXODE.</p></div></article>
+          <p className="creative-intro">Le développement de jeux reste une partie importante de mon parcours. Je garde cet espace séparé des projets IT pour que chaque univers ait sa place.</p>
+          <div className="game-grid">
+            {games.map((game) => (
+              <ExternalLink href={game.href} className="game-card" key={game.title}>
+                <div className="game-art"><span>PLAY</span><div className="game-scan" /></div>
+                <div className="game-info"><h3>{game.title}</h3><p>{game.text}</p><div className="tag-list">{game.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
+              </ExternalLink>
+            ))}
           </div>
+        </section>
+
+        <section className="section art-section">
+          <div className="art-copy"><div className="section-label"><span>04</span><b>3D · ART · EXPÉRIMENTATION</b></div><h2>Je garde aussi une place pour le <em>visuel.</em></h2><p>Modélisation 3D, assets, environnements et expérimentations graphiques font partie de mon parcours GameWeb.</p><ExternalLink className="big-link" href="https://www.artstation.com/tiruu">Voir mon ArtStation <Icon name="arrow" /></ExternalLink></div>
+          <div className="art-preview"><div className="art-grid" /><span>3D / GAME ART</span></div>
+        </section>
+
+        <section id="about" className="section about-section">
+          <div className="section-label"><span>05</span><b>À PROPOS</b></div>
+          <div className="about-grid">
+            <h2>Un profil hybride, mais un objectif clair.</h2>
+            <div className="about-copy">
+              <p>Mon parcours a commencé dans le jeu vidéo, la 3D et le développement web. Ces années m’ont appris à apprendre vite, à décomposer un problème et à aller jusqu’au bout d’un projet.</p>
+              <p>Chez VandB, j’ai ensuite développé un outil local de réservation avec HTML, CSS, JavaScript, PHP et SQL pour répondre à un besoin concret du magasin. Plus récemment, j’ai construit une application cartographique avec React, TypeScript, Supabase et MapLibre.</p>
+              <p>Je cherche maintenant un environnement où je peux continuer à progresser en informatique, apporter mon regard de développeur et devenir rapidement autonome.</p>
+            </div>
+          </div>
+          <div className="skills-row">{skills.map((group) => <div className="skill-block" key={group.title}><h3>{group.title}</h3><div className="skill-list">{group.items.map((item) => <span key={item}>{item}</span>)}</div></div>)}</div>
         </section>
 
         <section id="contact" className="section contact-section">
-          <div>
-            <p className="eyebrow">05 · CONTACT</p>
-            <h2>Un projet, une opportunité ou simplement envie d’échanger ?</h2>
-          </div>
-          <div className="contact-panel">
-            <a className="contact-email" href="mailto:lino.thebault@gmail.com">lino.thebault@gmail.com</a>
-            <p>Je suis actuellement ouvert aux opportunités junior en informatique et développement web.</p>
-            <div className="socials">
-              {socialLinks.map((link) => (
-                <a href={link.href} target="_blank" rel="noreferrer" key={link.label}>
-                  {link.label} <Icon name="external" />
-                </a>
-              ))}
-            </div>
-            <a className="button primary" href="/downloadable/resume.pdf">Télécharger mon CV <Icon name="arrow" /></a>
-          </div>
+          <div><div className="section-label"><span>06</span><b>CONTACT</b></div><h2>Un projet, un poste,<br /><em>une discussion ?</em></h2></div>
+          <div className="contact-card"><p>Je suis actuellement à la recherche d’un poste junior en informatique ou développement web.</p><a className="contact-email" href="mailto:lino.thebault@gmail.com">lino.thebault@gmail.com</a><div className="socials">{socialLinks.map((link) => <ExternalLink href={link.href} key={link.label}>{link.label}</ExternalLink>)}</div></div>
         </section>
       </main>
 
-      <footer>
-        <span>© 2026 Lino Thebault</span>
-        <span>Tiruu · Portfolio</span>
-        <a href="#top">Retour en haut ↑</a>
-      </footer>
+      <footer><span>© {new Date().getFullYear()} Lino Thebault · Tiruu</span><a href="#top">Retour en haut ↑</a></footer>
     </div>
   );
 }

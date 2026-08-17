@@ -1,97 +1,68 @@
 export type Project = {
   title: string;
-  category: string;
+  eyebrow: string;
   year: string;
   description: string;
   technologies: string[];
+  image: string;
   featured?: boolean;
-  image?: string;
   links?: { label: string; href: string }[];
 };
 
 export const projects: Project[] = [
   {
-    title: "Application cartographique communautaire",
-    category: "Web · Projet personnel",
+    title: "Ultra Auxerre Map",
+    eyebrow: "Projet personnel · Web",
     year: "2026",
     description:
-      "Application web interactive permettant de référencer et consulter des points d’intérêt sur une carte, avec authentification, profils, classement, confirmations et signalements.",
-    technologies: ["React", "TypeScript", "Vite", "Supabase", "MapLibre", "Docker", "GitHub", "Vercel"],
-    featured: true,
+      "Application cartographique communautaire développée pour référencer des points d’intérêt, gérer les profils et contributions, et expérimenter une application web complète de bout en bout.",
+    technologies: ["React", "TypeScript", "Vite", "Supabase", "MapLibre", "Docker"],
     image: "/assets/project-map.svg",
-    links: [
-      { label: "Projet GitHub", href: "https://github.com/Tiruu" }
-    ],
+    featured: true,
+    links: [{ label: "GitHub", href: "https://github.com/Tiruu" }],
   },
   {
-    title: "Outil de gestion des réservations — VandB",
-    category: "Web · Projet professionnel",
+    title: "Gestion des réservations VandB",
+    eyebrow: "Projet professionnel · Application locale",
     year: "2024–2026",
     description:
-      "Application web locale conçue pour répondre à un besoin interne de gestion des réservations de tireuses, dans l’attente d’un outil fourni par la centrale.",
+      "Outil développé en magasin pour améliorer le suivi des réservations de tireuses et la gestion du flux, en attendant la mise à disposition d’une solution par la centrale.",
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "SQL", "XAMPP"],
-    featured: true,
     image: "/assets/project-vandb.svg",
+    featured: true,
   },
   {
-    title: "Jeu web et mobile — UDSP 89",
-    category: "Projet professionnel · Stage",
+    title: "Jeu web & mobile — UDSP 89",
+    eyebrow: "Stage · Développement & 3D",
     year: "2024",
     description:
-      "Jeu Point & Click destiné à présenter l’association et ses activités. Modélisation des décors et assets 3D, développement de sept scènes et création du site hébergeant le jeu.",
+      "Jeu interactif réalisé pour l’Union Départementale des Sapeurs-Pompiers de l’Yonne, avec développement sous Unity, création d’assets 3D et réalisation du site web associé.",
     technologies: ["Unity", "C#", "Blender", "HTML", "CSS", "JavaScript"],
-    featured: true,
     image: "/assets/project-udsp.svg",
-    links: [
-      { label: "Voir le projet", href: "https://udsp.sdis89.fr/" }
-    ],
+    links: [{ label: "Voir le projet", href: "https://udsp.sdis89.fr/" }],
   },
   {
     title: "EXODE",
-    category: "Web · Stage",
+    eyebrow: "Stage · Jeu navigateur",
     year: "2023",
     description:
-      "Création de scènes pour un jeu vidéo sur navigateur et développement de séquences utilisées pour introduire de nouvelles parties du gameplay.",
+      "Création de scènes et de séquences destinées à introduire de nouvelles parties du gameplay d’un jeu vidéo sur navigateur.",
     technologies: ["HTML", "CSS", "JavaScript", "GitHub"],
     image: "/assets/project-exode.svg",
-  },
-  {
-    title: "Duel au Feur West",
-    category: "Game Dev",
-    year: "Projet étudiant",
-    description:
-      "Projet réalisé pour découvrir Unity et le développement de jeux vidéo.",
-    technologies: ["Unity", "C#"],
-    image: "/assets/project-game.svg",
-    links: [
-      { label: "Itch.io", href: "https://tiruuslow.itch.io/" }
-    ],
-  },
-  {
-    title: "PH²OM",
-    category: "Game Dev · Game Jam",
-    year: "2023",
-    description:
-      "Projet réalisé dans le cadre de la Scientific Game Jam de Nancy.",
-    technologies: ["Unity", "C#"],
-    image: "/assets/project-game.svg",
-    links: [
-      { label: "Itch.io", href: "https://tiruuslow.itch.io/" }
-    ],
   },
 ];
 
 export const skills = [
   {
-    title: "Développement web",
-    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "PHP", "SQL", "Git / GitHub"],
+    title: "Web & applications",
+    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "PHP", "SQL"],
   },
   {
-    title: "Outils & technologies",
-    items: ["Vite", "Supabase", "MapLibre", "Docker", "XAMPP", "Vercel"],
+    title: "Écosystème",
+    items: ["Git / GitHub", "Vite", "Supabase", "MapLibre", "Docker", "XAMPP", "Vercel"],
   },
   {
-    title: "Création numérique",
+    title: "Création interactive",
     items: ["Unity", "Godot", "C#", "Blender", "Aseprite"],
   },
 ];
@@ -101,4 +72,11 @@ export const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/lino-thebault-226b9b225" },
   { label: "ArtStation", href: "https://www.artstation.com/tiruu" },
   { label: "Itch.io", href: "https://tiruuslow.itch.io/" },
+];
+
+export const games = [
+  { title: "Fish - The side-quest game", text: "Un petit jeu de pêche pensé comme une side-quest devenue le jeu entier.", tags: ["Godot", "Blender", "Aseprite"], href: "https://tiruuslow.itch.io/fish" },
+  { title: "Mobile Suit Highway", text: "Un jeu de course de mechas avec une direction inspirée de l’ère N64.", tags: ["Unity", "3D", "Game Jam"], href: "https://tiruuslow.itch.io/mobile-suit-highway" },
+  { title: "Duel au Feur West", text: "Un duel local à deux joueurs dans un Far West low-poly, basé sur la réaction et les mots.", tags: ["Unity", "Blender", "2 joueurs"], href: "https://tiruuslow.itch.io/duel-au-feur-west" },
+  { title: "PH²OM", text: "Projet réalisé dans le cadre de la Scientific Game Jam de Nancy.", tags: ["Unity", "Game Jam"], href: "https://tiruuslow.itch.io/" },
 ];
