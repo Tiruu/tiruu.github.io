@@ -343,10 +343,7 @@ function App() {
           </div>
 
           <div className="art-preview">
-            <img
-              src="/assets/art.png"
-              alt="Création 3D de Lino"
-            />
+            <img src="/assets/art.png" alt="Création 3D de Lino" />
             <span>3D / GAME ART</span>
           </div>
         </section>
@@ -460,9 +457,12 @@ function App() {
 
       <footer>
         <span>© {new Date().getFullYear()} Lino Thebault · Tiruu</span>
+
         <span>
           Fait avec un peu de code, une pincée de bugs, et beaucoup de fun.
         </span>
+
+        <a href="/mentions-legales.html">Mentions légales</a>
 
         <a href="#top">Retour en haut ↑</a>
       </footer>
