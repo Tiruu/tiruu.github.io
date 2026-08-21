@@ -152,10 +152,10 @@ export const games = [
   },
 
   {
-    title: "PH²OM",
-    text: "Projet réalisé dans le cadre de la Scientific Game Jam de Nancy, avec les contraintes et le travail en équipe propres au format game jam.",
+    title: "PH²OM - Scientific Game Jam - Nancy",
+    text: "Platformer 3D sur la thèse de la transition de phase d'un doctorant en science.  1ère place du classement obtenue, débloquant un financement pour aller présenter le jeu à Paris lors du festival \"Double Science\".",
     tags: ["Unity", "C#", "Game Jam"],
-    href: "https://tiruuslow.itch.io/ph2om",
+    href: "https://tiruuslow.itch.io/phom",
     image: "/assets/phom.png",
   },
 ];
