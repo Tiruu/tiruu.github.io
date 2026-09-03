@@ -63,17 +63,20 @@
 .boot-stage {
   position: relative;
   z-index: 4;
-  width: min(900px, 88vw);
-  height: 260px;
+  width: min(1120px, 92vw);
+  height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .boot-mark {
-  position: relative;
+  position: absolute;
   z-index: 3;
-  width: clamp(135px, 19vw, 205px);
+  left: 50%;
+  top: 50%;
+  width: clamp(210px, 24vw, 285px);
+  transform: translate(-50%, -50%);
   filter: drop-shadow(0 0 0 rgba(255,255,255,0));
   transform-origin: center;
   animation:
@@ -88,22 +91,17 @@
   height: auto;
 }
 
-.boot-mark-top,
-.boot-mark-legs {
-  transform-origin: center;
-}
-
 .boot-wordmark {
   position: absolute;
   z-index: 2;
-  left: calc(50% + 22px);
+  left: calc(50% + 95px);
   top: 50%;
   display: flex;
   align-items: baseline;
   gap: .08em;
   white-space: nowrap;
   font-family: "Oxanium", "Space Grotesk", sans-serif;
-  font-size: clamp(2.1rem, 5vw, 4.5rem);
+  font-size: clamp(2.4rem, 5.4vw, 5rem);
   font-weight: 800;
   letter-spacing: -.045em;
   transform: translate(-125%, -50%);
@@ -160,9 +158,9 @@
 }
 
 @keyframes boot-mark-in {
-  0% { opacity: 0; transform: scale(.74) translateY(8px); filter: brightness(0) blur(3px); }
-  65% { opacity: 1; transform: scale(1.035) translateY(0); filter: brightness(1.65) blur(0); }
-  100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.74) translateY(8px); filter: brightness(0) blur(3px); }
+  65% { opacity: 1; transform: translate(-50%, -50%) scale(1.035) translateY(0); filter: brightness(1.65) blur(0); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); filter: brightness(1); }
 }
 
 @keyframes boot-mark-flicker {
@@ -174,9 +172,9 @@
 }
 
 @keyframes boot-mark-lock {
-  0% { transform: translateX(-2px); }
-  50% { transform: translateX(2px); filter: saturate(1.2); }
-  100% { transform: translateX(0); filter: none; }
+  0% { transform: translate(-50%, -50%) translateX(-2px); }
+  50% { transform: translate(-50%, -50%) translateX(2px); filter: saturate(1.2); }
+  100% { transform: translate(-50%, -50%) translateX(0); filter: none; }
 }
 
 @keyframes boot-wordmark-slide {
@@ -221,16 +219,18 @@
 
 @media (max-width: 700px) {
   .boot-stage {
-    height: 190px;
+    width: 94vw;
+    height: 210px;
   }
 
   .boot-mark {
-    width: 125px;
+    left: 37%;
+    width: 165px;
   }
 
   .boot-wordmark {
-    left: calc(50% + 15px);
-    font-size: clamp(1.45rem, 8vw, 2.7rem);
+    left: calc(37% + 65px);
+    font-size: clamp(1.5rem, 8vw, 2.8rem);
   }
 
   .boot-status {
