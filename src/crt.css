@@ -1,16 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&display=swap');
 
+/* =========================================================
+   CRT / N64 DISPLAY SETTINGS
+   Tout ce qui est intéressant à tweaker est ici.
+   ========================================================= */
+
 :root {
+  /* -------------------------
+     SCANLINES
+     ------------------------- */
+
+  /* Intensité des lignes */
   --crt-scanline-opacity: 0.12;
+
+  /* Espacement entre les lignes */
+  --crt-scanline-size: 4px;
+
+  /* Vitesse de défilement vers le haut */
+  --crt-scanline-speed: 1.2s;
+
+
+  /* -------------------------
+     VIGNETTE / ÉCRAN
+     ------------------------- */
+
+  /* Assombrissement des bords */
   --crt-vignette-opacity: 0.35;
-  --crt-jitter-x: 1px;
+
+
+  /* -------------------------
+     JITTER / INSTABILITÉ
+     ------------------------- */
+
+  /* Amplitude du tremblement */
+  --crt-jitter-x: 2px;
   --crt-jitter-y: 1px;
+
+  /* Durée d'un micro-glitch */
   --crt-jitter-duration: 120ms;
+
+
+  /* -------------------------
+     INTERFERENCE / PARASITES
+     ------------------------- */
+
+  /* Opacité globale de la bande */
   --crt-interference-opacity: 0.18;
+
+  /* Hauteur de la bande */
   --crt-interference-height: 80px;
+
+  /* Durée du parasite */
+  --crt-interference-duration: 130ms;
+
+
+  /* -------------------------
+     PHOSPHORE / FLICKER
+     ------------------------- */
+
+  /* Variation lumineuse */
+  --crt-flicker-opacity: 0.025;
+
+  /* Vitesse du flicker */
+  --crt-flicker-speed: 4s;
+
+
+  /* -------------------------
+     RGB / CHROMATIC ABERRATION
+     ------------------------- */
+
+  /* Très léger décalage des couleurs */
+  --crt-rgb-opacity: 0.035;
 }
 
-/* CRT layer: visible but intentionally restrained */
+
+/* =========================================================
+   CRT OVERLAY
+   ========================================================= */
+
 .site-shell::before,
 .site-shell::after {
   content: "";
@@ -20,95 +87,463 @@
   z-index: 45;
 }
 
-/* Scanlines */
+
+/* =========================================================
+   SCANLINES
+   ========================================================= */
+
 .site-shell::before {
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255,255,255,0) 0px,
-    rgba(255,255,255,0) 2px,
-    rgba(120,220,255,.055) 3px,
-    rgba(255,255,255,0) 4px
-  );
-  opacity: .65;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+
+      transparent 0px,
+      transparent 2px,
+
+      rgba(
+        120,
+        220,
+        255,
+        var(--crt-scanline-opacity)
+      ) 3px,
+
+      transparent var(--crt-scanline-size)
+    );
+
+  opacity: 0.65;
+
   mix-blend-mode: screen;
-  animation: crt-scanlines 0.8s linear infinite;
+
+  animation:
+    crt-scanlines var(--crt-scanline-speed) linear infinite,
+    crt-flicker var(--crt-flicker-speed) ease-in-out infinite;
 }
 
+
+/*
+ * Les lignes montent continuellement.
+ */
 @keyframes crt-scanlines {
+
   from {
     background-position: 0 0;
   }
 
   to {
-    background-position: 0 -4px;
+    background-position:
+      0 calc(var(--crt-scanline-size) * -1);
   }
 }
 
-/* CRT vignette / slight phosphor falloff */
-.site-shell::after {
-  background:
-    radial-gradient(ellipse at center, transparent 48%, rgba(0,0,0,.18) 78%, rgba(0,0,0,.42) 100%),
-    linear-gradient(90deg, rgba(255,60,120,.025), transparent 18%, transparent 82%, rgba(60,210,255,.025));
+
+/*
+ * Très légère respiration lumineuse.
+ * Le but est que l'écran ne paraisse pas parfaitement statique.
+ */
+@keyframes crt-flicker {
+
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity:
+      calc(
+        0.65 + var(--crt-flicker-opacity)
+      );
+  }
 }
 
-/* Make the display typography feel more like a console UI. */
+
+/* =========================================================
+   VIGNETTE / PHOSPHORE
+   ========================================================= */
+
+.site-shell::after {
+  background:
+
+    /*
+     * Assombrissement progressif des bords
+     */
+    radial-gradient(
+      ellipse at center,
+
+      transparent 45%,
+
+      rgba(0, 0, 0, 0.10) 65%,
+
+      rgba(0, 0, 0, var(--crt-vignette-opacity)) 100%
+    ),
+
+    /*
+     * Très légère séparation RGB sur les bords.
+     */
+    linear-gradient(
+      90deg,
+
+      rgba(255, 60, 120, var(--crt-rgb-opacity)),
+      transparent 18%,
+
+      transparent 82%,
+
+      rgba(60, 210, 255, var(--crt-rgb-opacity))
+    );
+}
+
+
+/* =========================================================
+   CONSOLE / DISPLAY TYPOGRAPHY
+   ========================================================= */
+
 .hero h1,
 h2,
 h3,
 .brand-copy strong,
 .brand-symbol {
-  font-family: "Oxanium", "Space Grotesk", sans-serif;
+  font-family:
+    "Oxanium",
+    "Space Grotesk",
+    sans-serif;
 }
 
-/* Occasional signal instability. The class is toggled by App.tsx. */
+
+/* =========================================================
+   JITTER
+   ========================================================= */
+
+/*
+ * Cette classe est ajoutée ponctuellement par App.tsx.
+ *
+ * Elle ne doit PAS être appliquée en permanence.
+ */
 .crt-jitter {
-  animation: crt-jitter 110ms steps(2, end) both;
+  animation:
+    crt-jitter var(--crt-jitter-duration)
+    steps(2, end)
+    both;
 }
+
+
+@keyframes crt-jitter {
+
+  0% {
+    transform: translate(0, 0);
+    filter: none;
+  }
+
+  15% {
+    transform:
+      translate(
+        calc(var(--crt-jitter-x) * -0.5),
+        0
+      );
+  }
+
+  30% {
+    transform:
+      translate(
+        var(--crt-jitter-x),
+        0
+      );
+
+    filter:
+      contrast(1.08)
+      saturate(1.08);
+  }
+
+  45% {
+    transform:
+      translate(
+        calc(var(--crt-jitter-x) * -1),
+        var(--crt-jitter-y)
+      );
+  }
+
+  60% {
+    transform:
+      translate(
+        calc(var(--crt-jitter-x) * 0.5),
+        calc(var(--crt-jitter-y) * -1)
+      );
+
+    filter:
+      contrast(1.12)
+      saturate(1.12);
+  }
+
+  75% {
+    transform:
+      translate(
+        calc(var(--crt-jitter-x) * -0.5),
+        0
+      );
+  }
+
+  100% {
+    transform: translate(0, 0);
+    filter: none;
+  }
+}
+
+
+/* =========================================================
+   INTERFERENCE SYSTEM
+   ========================================================= */
 
 .crt-interference {
   position: relative;
   isolation: isolate;
 }
 
+
+/*
+ * Bande horizontale de parasite.
+ */
 .crt-interference::after {
   content: "";
+
   position: absolute;
+
   z-index: 3;
+
   left: -2%;
   right: -2%;
+
   top: var(--crt-y, 45%);
-  height: var(--crt-height, 12px);
+
+  height:
+    var(--crt-interference-height);
+
   pointer-events: none;
+
   opacity: 0;
+
   background:
-    linear-gradient(90deg, transparent 0 5%, rgba(255,60,130,.22) 20%, rgba(60,220,255,.2) 45%, transparent 75%),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 2px, transparent 2px 7px);
-  transform: skewX(-7deg) translateX(-8px);
+
+    /*
+     * Bande lumineuse centrale
+     */
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      rgba(255, 255, 255, 0.01) 35%,
+
+      rgba(255, 255, 255, 0.20) 50%,
+
+      rgba(255, 255, 255, 0.01) 65%,
+
+      transparent 100%
+    ),
+
+    /*
+     * Décalage RGB
+     */
+    linear-gradient(
+      90deg,
+
+      transparent 0 5%,
+
+      rgba(255, 60, 130, 0.22) 20%,
+
+      rgba(60, 220, 255, 0.20) 45%,
+
+      transparent 75%
+    ),
+
+    /*
+     * Parasites verticaux
+     */
+    repeating-linear-gradient(
+      90deg,
+
+      rgba(255, 255, 255, 0.08) 0 2px,
+
+      transparent 2px 7px
+    );
+
+  transform:
+    skewX(-7deg)
+    translateX(-8px);
 }
 
+
+/*
+ * App.tsx ajoute cette classe pendant un glitch.
+ */
 .crt-interference-active::after {
-  animation: crt-interference 130ms steps(2, end) both;
+
+  animation:
+    crt-interference
+    var(--crt-interference-duration)
+    steps(2, end)
+    both;
 }
 
-@keyframes crt-jitter {
-  0% { transform: translate(0,0); filter: none; }
-  20% { transform: translate(-2px,1px); }
-  45% { transform: translate(2px,-1px); filter: contrast(1.08) saturate(1.08); }
-  70% { transform: translate(-1px,0); }
-  100% { transform: translate(0,0); filter: none; }
-}
 
 @keyframes crt-interference {
-  0% { opacity: 0; transform: skewX(-7deg) translate(-14px,-2px); }
-  18% { opacity: .9; }
-  48% { opacity: .55; transform: skewX(-7deg) translate(11px,2px); }
-  72% { opacity: .85; transform: skewX(-7deg) translate(-5px,0); }
-  100% { opacity: 0; transform: skewX(-7deg) translate(16px,-1px); }
+
+  0% {
+    opacity: 0;
+
+    transform:
+      skewX(-7deg)
+      translate(-14px, -2px);
+  }
+
+  15% {
+    opacity:
+      var(--crt-interference-opacity);
+  }
+
+  30% {
+    opacity: 0.85;
+
+    transform:
+      skewX(-7deg)
+      translate(8px, 1px);
+  }
+
+  48% {
+    opacity: 0.55;
+
+    transform:
+      skewX(-7deg)
+      translate(-11px, 2px);
+  }
+
+  65% {
+    opacity: 0.90;
+
+    transform:
+      skewX(-7deg)
+      translate(6px, -1px);
+  }
+
+  82% {
+    opacity: 0.35;
+
+    transform:
+      skewX(-7deg)
+      translate(-4px, 0);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      skewX(-7deg)
+      translate(16px, -1px);
+  }
 }
 
+
+/* =========================================================
+   SCANLINE GLITCH
+   ========================================================= */
+
+/*
+ * Pendant une interférence, les lignes CRT
+ * se mettent temporairement à "sauter".
+ */
+.crt-interference-active.site-shell::before {
+
+  animation:
+    crt-scanlines-glitch
+    var(--crt-interference-duration)
+    steps(4, end),
+    crt-flicker
+    var(--crt-interference-duration)
+    steps(2, end);
+}
+
+
+@keyframes crt-scanlines-glitch {
+
+  0% {
+    background-position: 0 0;
+  }
+
+  20% {
+    background-position: 0 -8px;
+  }
+
+  40% {
+    background-position: 0 3px;
+  }
+
+  60% {
+    background-position: 0 -12px;
+  }
+
+  80% {
+    background-position: 0 5px;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+
+/* =========================================================
+   OPTIONAL: SMALL SIGNAL FLASH
+   ========================================================= */
+
+/*
+ * Petit flash horizontal très rapide.
+ * Peut être activé en ajoutant .crt-signal-flash
+ * à un élément.
+ */
+
+.crt-signal-flash {
+  animation:
+    crt-signal-flash 180ms
+    steps(3, end)
+    both;
+}
+
+
+@keyframes crt-signal-flash {
+
+  0% {
+    filter: none;
+  }
+
+  35% {
+    filter:
+      brightness(1.12)
+      contrast(1.08);
+  }
+
+  60% {
+    filter:
+      brightness(0.92)
+      contrast(1.15);
+  }
+
+  100% {
+    filter: none;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
+  .site-shell::before {
+    animation: none;
+  }
+
   .crt-jitter,
-  .crt-interference-active::after {
+  .crt-interference-active::after,
+  .crt-interference-active.site-shell::before,
+  .crt-signal-flash {
     animation: none;
   }
 }
