@@ -61,14 +61,43 @@ function App() {
     document.title = "Lino Thebault — Junior Web Developer · Game Developer";
   }, []);
 
+  useEffect(() => {
+    const selectors = ["[data-crt-jolt]"].join(",");
+    let timeoutId: number;
+
+    const trigger = () => {
+      const elements = Array.from(document.querySelectorAll<HTMLElement>(selectors));
+      if (elements.length) {
+        const element = elements[Math.floor(Math.random() * elements.length)];
+        element.classList.remove("crt-jolt");
+        void element.offsetWidth;
+        element.classList.add("crt-jolt");
+        window.setTimeout(() => element.classList.remove("crt-jolt"), 220);
+      }
+      timeoutId = window.setTimeout(trigger, 4200 + Math.random() * 6200);
+    };
+
+    timeoutId = window.setTimeout(trigger, 2600 + Math.random() * 3000);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
   return (
     <div className="site-shell" id="top">
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Oxanium:wght@400;500;600;700&family=Press+Start+2P&display=swap');
+.hero h1, h2, h3, .brand-symbol, .brand-copy strong, .project-content h3, .game-info h3 { font-family: "Oxanium", "Space Grotesk", sans-serif; }
+.crt-overlay { position: fixed; inset: 0; z-index: 39; pointer-events: none; opacity: .2; background: repeating-linear-gradient(to bottom, rgba(255,255,255,.025) 0, rgba(255,255,255,.025) 1px, transparent 1px, transparent 4px); mix-blend-mode: screen; }
+.crt-overlay::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.3) 100%); }
+.crt-jolt { animation: crt-jolt .18s steps(2, end) both; }
+@keyframes crt-jolt { 0%,100% { transform: translate(0,0); filter: none; } 18% { transform: translate(-1px,1px) skewX(.2deg); filter: saturate(1.12); } 38% { transform: translate(2px,-1px); filter: contrast(1.08); } 57% { transform: translate(-2px,0); } 76% { transform: translate(1px,1px); filter: saturate(1.2); } }
+.crt-jolt::before { text-shadow: -1px 0 rgba(67,217,255,.65), 1px 0 rgba(255,79,216,.55); }
+@media (prefers-reduced-motion: reduce) { .crt-overlay { display: none; } .crt-jolt { animation: none !important; } }`}</style>
+      <div className="crt-overlay" aria-hidden="true" />
       <div className="noise" aria-hidden="true" />
       <div className="pixel-orb pixel-orb-one" aria-hidden="true" />
       <div className="pixel-orb pixel-orb-two" aria-hidden="true" />
 
       <header className="site-header">
-        <a className="brand" href="#top" onClick={closeMenu}>
+        <a className="brand" href="#top" onClick={closeMenu} data-crt-jolt>
           <span className="brand-symbol">T</span>
           <span className="brand-copy"><strong>TIRUU</strong><small>Lino Thebault</small></span>
         </a>
@@ -91,7 +120,7 @@ function App() {
         <section className="hero section">
           <div className="hero-main">
             <p className="hero-kicker"><span /> Junior Web Developer · Game Developer</p>
-            <h1>Je construis des projets web.<br /><em>Je débugue des trucs. Je fais aussi des jeux.</em></h1>
+            <h1 data-crt-jolt>Je construis des projets web.<br /><em>Je débugue des trucs. Je fais aussi des jeux.</em></h1>
             <p className="hero-intro">
               Développeur junior issu d’un BUT MMI GameWeb, je suis le genre de personne à partir d’une idée ou d’un problème et à vouloir comprendre comment ça marche. J’aime bricoler, tester, casser des trucs, puis essayer de les rendre meilleurs. React, TypeScript, JavaScript, PHP, SQL et C# font partie de ma boîte à outils.
             </p>
@@ -107,7 +136,7 @@ function App() {
           </div>
 
           <div className="hero-side">
-            <div className="portrait-frame"><img src="/assets/avatar.jpg" alt="Portrait de Lino Thebault" /></div>
+            <div className="portrait-frame" data-crt-jolt><img src="/assets/avatar.jpg" alt="Portrait de Lino Thebault" /></div>
             <div className="side-note"><span className="signal" /> Disponible pour un poste junior</div>
             <div className="side-index">01 <span>/</span> 06</div>
           </div>
@@ -127,6 +156,7 @@ function App() {
                 key={project.title}
                 role="button"
                 tabIndex={0}
+                data-crt-jolt
                 onClick={() => setSelectedProject(project)}
                 onKeyDown={(event) => {
                   if (event.key === "Enter" || event.key === " ") {
