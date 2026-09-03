@@ -55,7 +55,7 @@ function App() {
         <section className="hero section">
           <div className="hero-main">
             <p className="hero-kicker"><span /> Junior Web Developer · Game Developer</p>
-            <h1>Je construis des projets web.<br /><em>Je débugue des trucs. Et parfois des jeux.</em></h1>
+            <h1>Je construis des projets web.<br /><em>Je débugue des trucs. Je fais aussi des jeux.</em></h1>
             <p className="hero-intro">
               Développeur junior issu d’un BUT MMI GameWeb, je suis le genre de personne à partir d’une idée ou d’un problème et à vouloir comprendre comment ça marche. J’aime bricoler, tester, casser des trucs, puis essayer de les rendre meilleurs. React, TypeScript, JavaScript, PHP, SQL et C# font partie de ma boîte à outils.
             </p>
