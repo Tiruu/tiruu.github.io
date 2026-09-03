@@ -11,10 +11,10 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Ultra Auxerre Map",
+    title: "Ultra Stick Map",
     eyebrow: "Projet personnel · Application web",
     year: "2026",
-    description: "Application cartographique communautaire développée pour explorer et référencer des points d’intérêt. Le projet comprend authentification, profils, contributions, classement, confirmation et signalement de données.",
+    description: "Application cartographique communautaire développée pour explorer et référencer des points d’intérêt. Authentification, profils, contributions, classement, confirmation et signalement de données : un projet qui a commencé par une idée simple et qui a vite pris de l’ampleur.",
     technologies: ["React", "TypeScript", "Vite", "Supabase", "MapLibre", "Docker", "Git/GitHub"],
     image: "/assets/project-map.png",
     featured: true,
@@ -63,9 +63,9 @@ export const socialLinks = [
 ];
 
 export const games = [
-  { title: "Fish - The side-quest game", text: "Petit jeu de pêche autour du gameplay, de l’ambiance et de l’expérimentation.", tags: ["Godot", "GDScript", "Blender", "Aseprite"], href: "https://tiruuslow.itch.io/fish", image: "/assets/fish.png" },
-  { title: "Mobile Suit Highway", text: "Jeu de course de mechas avec une direction artistique inspirée des jeux de l’ère N64.", tags: ["Unity", "C#", "3D", "Game Jam"], href: "https://tiruuslow.itch.io/mobile-suit-highway", image: "/assets/mech.png" },
-  { title: "Me When", text: "Rogue-like expérimental basé sur une mécanique de changement de perspective.", tags: ["Unity", "C#", "Blender", "1 joueur"], href: "https://tiruuslow.itch.io/me-when", image: "/assets/when.png" },
-  { title: "Duel au Feur West", text: "Duel local à deux joueurs dans un Far West low-poly, basé sur la rapidité de réaction.", tags: ["Unity", "C#", "Blender", "2 joueurs"], href: "https://tiruuslow.itch.io/duel-au-feur-west", image: "/assets/west.png" },
-  { title: "PH²OM — Scientific Game Jam", text: "Platformer 3D réalisé autour d’une thèse scientifique. 1ère place du classement et présentation du jeu à Paris lors de Double Science.", tags: ["Unity", "C#", "Game Jam"], href: "https://tiruuslow.itch.io/phom", image: "/assets/phom.png" },
+  { title: "Fish - The side-quest game", text: "Petit jeu de pêche né d’une envie de bricoler une mécanique simple… puis de voir jusqu’où je pouvais la pousser.", tags: ["Godot", "GDScript", "Blender", "Aseprite"], href: "https://tiruuslow.itch.io/fish", image: "/assets/fish.png" },
+  { title: "Mobile Suit Highway", text: "Jeu de course de mechas avec une direction artistique inspirée des jeux de l’ère N64. Oui, l’idée est aussi absurde que ça en a l’air.", tags: ["Unity", "C#", "3D", "Game Jam"], href: "https://tiruuslow.itch.io/mobile-suit-highway", image: "/assets/mech.png" },
+  { title: "Me When", text: "Rogue-like expérimental basé sur une mécanique de changement de perspective. Parce qu’une bonne idée mérite parfois d’être un peu bizarre.", tags: ["Unity", "C#", "Blender", "1 joueur"], href: "https://tiruuslow.itch.io/me-when", image: "/assets/when.png" },
+  { title: "Duel au Feur West", text: "Duel local à deux joueurs dans un Far West low-poly, basé sur la rapidité de réaction. Rapide, simple, et probablement trop compétitif.", tags: ["Unity", "C#", "Blender", "2 joueurs"], href: "https://tiruuslow.itch.io/duel-au-feur-west", image: "/assets/west.png" },
+  { title: "PH²OM — Scientific Game Jam", text: "Platformer 3D réalisé autour d’une thèse scientifique. 1ère place du classement, puis direction Paris pour présenter le jeu à Double Science.", tags: ["Unity", "C#", "Game Jam"], href: "https://tiruuslow.itch.io/phom", image: "/assets/phom.png" },
 ];
