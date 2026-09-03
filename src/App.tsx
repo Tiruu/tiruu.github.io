@@ -1,6 +1,8 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { games, projects, skills, socialLinks, type Project } from "./data";
 import "./crt.css";
+import "./boot.css";
+import BootSequence from "./components/BootSequence";
 
 type IconName = "arrow" | "external" | "menu" | "close";
 
@@ -80,10 +82,11 @@ function App() {
 
   return (
     <div className="site-shell" id="top">
+      <BootSequence />
       <div className="noise" aria-hidden="true" />
       <div className="pixel-orb pixel-orb-one" aria-hidden="true" />
       <div className="pixel-orb pixel-orb-two" aria-hidden="true" />
-      <div className={`crt-interference ${crtPulse > 0 ? "crt-interference-active" : ""}`} style={{"--crt-y": `${18 + ((crtPulse * 31) % 68)}%`} as React.CSSProperties} aria-hidden="true" />
+      <div className={`crt-interference ${crtPulse > 0 ? "crt-interference-active" : ""}`} style={{"--crt-y": `${18 + ((crtPulse * 31) % 68)}%`} as CSSProperties} aria-hidden="true" />
 
       <header className={`site-header ${jitter(3) ? "crt-jitter" : ""}`}>
         <a className="brand" href="#top" onClick={closeMenu}>

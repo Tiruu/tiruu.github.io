@@ -1,0 +1,262 @@
+:root {
+  --boot-bg: #02050b;
+  --boot-blue: #1233b8;
+  --boot-red: #ff2f24;
+  --boot-green: #079b3d;
+  --boot-yellow: #ffbd16;
+}
+
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: var(--boot-bg);
+  color: #f4f7ff;
+  isolation: isolate;
+  animation: boot-power-on 180ms steps(2, end) both;
+}
+
+.boot-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(90deg, rgba(255,47,36,.16), transparent 20%, transparent 80%, rgba(18,51,184,.16));
+  mix-blend-mode: screen;
+  animation: boot-rgb-flash 90ms 810ms steps(2, end) both;
+}
+
+.boot-vignette,
+.boot-scanlines,
+.boot-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.boot-vignette {
+  z-index: 6;
+  background: radial-gradient(ellipse at center, transparent 42%, rgba(0,0,0,.28) 72%, rgba(0,0,0,.76) 100%);
+}
+
+.boot-scanlines {
+  z-index: 7;
+  opacity: .42;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(130,220,255,.07) 3px, transparent 4px);
+  animation: boot-scan-move 900ms linear infinite;
+}
+
+.boot-noise {
+  z-index: 8;
+  opacity: .08;
+  background-image: repeating-radial-gradient(circle at 20% 30%, rgba(255,255,255,.8) 0 1px, transparent 1px 4px);
+  background-size: 5px 5px;
+  mix-blend-mode: screen;
+  animation: boot-noise-shift 80ms steps(2, end) infinite;
+}
+
+.boot-stage {
+  position: relative;
+  z-index: 4;
+  width: min(900px, 88vw);
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boot-mark {
+  position: relative;
+  z-index: 3;
+  width: clamp(135px, 19vw, 205px);
+  filter: drop-shadow(0 0 0 rgba(255,255,255,0));
+  transform-origin: center;
+  animation:
+    boot-mark-in 260ms 130ms cubic-bezier(.16,.84,.28,1) both,
+    boot-mark-flicker 120ms 440ms steps(2, end) both,
+    boot-mark-lock 90ms 820ms steps(2, end) both;
+}
+
+.boot-mark-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.boot-mark-top,
+.boot-mark-legs {
+  transform-origin: center;
+}
+
+.boot-wordmark {
+  position: absolute;
+  z-index: 2;
+  left: calc(50% + 22px);
+  top: 50%;
+  display: flex;
+  align-items: baseline;
+  gap: .08em;
+  white-space: nowrap;
+  font-family: "Oxanium", "Space Grotesk", sans-serif;
+  font-size: clamp(2.1rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  transform: translate(-125%, -50%);
+  opacity: 0;
+  text-shadow: 3px 3px 0 rgba(18,51,184,.32);
+  animation: boot-wordmark-slide 360ms 500ms cubic-bezier(.18,.86,.24,1) both;
+}
+
+.boot-wordmark span {
+  color: var(--boot-blue);
+}
+
+.boot-wordmark strong {
+  color: var(--boot-red);
+  font-size: .78em;
+  font-weight: 800;
+}
+
+.boot-status {
+  position: absolute;
+  z-index: 9;
+  bottom: 24px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(240,245,255,.45);
+  font: 600 10px/1 "Press Start 2P", monospace;
+  letter-spacing: .06em;
+}
+
+.boot-status-line {
+  width: 52px;
+  height: 2px;
+  background: rgba(255,255,255,.25);
+  animation: boot-status-pulse 500ms steps(2, end) infinite;
+}
+
+.boot-screen-closing {
+  animation: boot-power-off 260ms steps(3, end) both;
+}
+
+.boot-screen-closing .boot-stage,
+.boot-screen-closing .boot-status {
+  animation: boot-collapse 260ms cubic-bezier(.7,0,.84,.05) both;
+}
+
+@keyframes boot-power-on {
+  0% { opacity: 0; filter: brightness(0); }
+  35% { opacity: .8; filter: brightness(.8); }
+  55% { opacity: .2; }
+  100% { opacity: 1; filter: brightness(1); }
+}
+
+@keyframes boot-mark-in {
+  0% { opacity: 0; transform: scale(.74) translateY(8px); filter: brightness(0) blur(3px); }
+  65% { opacity: 1; transform: scale(1.035) translateY(0); filter: brightness(1.65) blur(0); }
+  100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+}
+
+@keyframes boot-mark-flicker {
+  0% { filter: brightness(1); }
+  22% { filter: brightness(2.2) saturate(1.2); }
+  42% { filter: brightness(.45); }
+  61% { filter: brightness(1.7); }
+  100% { filter: brightness(1); }
+}
+
+@keyframes boot-mark-lock {
+  0% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); filter: saturate(1.2); }
+  100% { transform: translateX(0); filter: none; }
+}
+
+@keyframes boot-wordmark-slide {
+  0% { opacity: 0; transform: translate(-125%, -50%); filter: blur(3px); }
+  15% { opacity: 1; }
+  100% { opacity: 1; transform: translate(0, -50%); filter: blur(0); }
+}
+
+@keyframes boot-rgb-flash {
+  0% { opacity: 0; transform: translateX(0); }
+  30% { opacity: .9; transform: translateX(-3px); }
+  70% { opacity: .45; transform: translateX(3px); }
+  100% { opacity: 0; transform: translateX(0); }
+}
+
+@keyframes boot-scan-move {
+  from { background-position: 0 0; }
+  to { background-position: 0 18px; }
+}
+
+@keyframes boot-noise-shift {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-2px,1px); }
+  100% { transform: translate(1px,-2px); }
+}
+
+@keyframes boot-status-pulse {
+  0%, 100% { opacity: .25; }
+  50% { opacity: .8; }
+}
+
+@keyframes boot-power-off {
+  0% { opacity: 1; clip-path: inset(0); }
+  55% { opacity: 1; clip-path: inset(47% 0); }
+  100% { opacity: 0; clip-path: inset(50% 0); }
+}
+
+@keyframes boot-collapse {
+  0% { transform: scale(1); }
+  100% { transform: scaleY(.02) scaleX(1.05); opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  .boot-stage {
+    height: 190px;
+  }
+
+  .boot-mark {
+    width: 125px;
+  }
+
+  .boot-wordmark {
+    left: calc(50% + 15px);
+    font-size: clamp(1.45rem, 8vw, 2.7rem);
+  }
+
+  .boot-status {
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-screen,
+  .boot-screen::before,
+  .boot-mark,
+  .boot-wordmark,
+  .boot-scanlines,
+  .boot-noise,
+  .boot-status-line,
+  .boot-screen-closing,
+  .boot-screen-closing .boot-stage,
+  .boot-screen-closing .boot-status {
+    animation: none !important;
+  }
+
+  .boot-screen {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
