@@ -25,7 +25,7 @@
      ------------------------- */
 
   /* Assombrissement des bords */
-  --crt-vignette-opacity: 0.35;
+  --crt-vignette-opacity: 1;
 
 
   /* -------------------------
@@ -201,10 +201,15 @@ h2,
 h3,
 .brand-copy strong,
 .brand-symbol {
-  font-family:
-    "Oxanium",
-    "Space Grotesk",
-    sans-serif;
+  font-family: "Oxanium", "Space Grotesk", sans-serif;
+  
+  /* Ajoute ceci pour imiter les phosphores d'un écran cathodique */
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(120, 220, 255, 0.2);
+  
+  /* Optionnel : adoucit légèrement les polices pour éviter le côté "trop net" du web moderne */
+  filter: blur(0.2px); 
 }
 
 
@@ -507,27 +512,33 @@ h3,
 
 
 @keyframes crt-signal-flash {
-
   0% {
     filter: none;
+    transform: scaleY(1);
   }
 
   35% {
     filter:
-      brightness(1.12)
-      contrast(1.08);
+      brightness(1.18) /* Légèrement augmenté pour marquer le coup */
+      contrast(1.10)
+      drop-shadow(0 0 4px rgba(255, 255, 255, 0.4)); /* Ajoute un éclat blanc */
+    transform: scaleY(1.01); /* Un micro-étirement vertical typique des sauts de tension */
   }
 
   60% {
     filter:
-      brightness(0.92)
-      contrast(1.15);
+      brightness(0.88)
+      contrast(1.15)
+      drop-shadow(0 0 0 transparent);
+    transform: scaleY(0.99);
   }
 
   100% {
     filter: none;
+    transform: scaleY(1);
   }
 }
+
 
 
 /* =========================================================
