@@ -63,17 +63,20 @@
 .boot-stage {
   position: relative;
   z-index: 4;
-  width: min(900px, 88vw);
-  height: 260px;
+  width: min(1000px, 92vw);
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .boot-mark {
-  position: relative;
+  --boot-mark-x: -145px;
+  position: absolute;
   z-index: 3;
-  width: clamp(135px, 19vw, 205px);
+  left: 50%;
+  top: 50%;
+  width: clamp(190px, 27vw, 285px);
   filter: drop-shadow(0 0 0 rgba(255,255,255,0));
   transform-origin: center;
   animation:
@@ -96,7 +99,7 @@
 .boot-wordmark {
   position: absolute;
   z-index: 2;
-  left: calc(50% + 22px);
+  left: calc(50% + 34px);
   top: 50%;
   display: flex;
   align-items: baseline;
@@ -160,9 +163,9 @@
 }
 
 @keyframes boot-mark-in {
-  0% { opacity: 0; transform: scale(.74) translateY(8px); filter: brightness(0) blur(3px); }
-  65% { opacity: 1; transform: scale(1.035) translateY(0); filter: brightness(1.65) blur(0); }
-  100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+  0% { opacity: 0; transform: translate(var(--boot-mark-x), 8px) scale(.74); filter: brightness(0) blur(3px); }
+  65% { opacity: 1; transform: translate(var(--boot-mark-x), 0) scale(1.035); filter: brightness(1.65) blur(0); }
+  100% { opacity: 1; transform: translate(var(--boot-mark-x), 0) scale(1); filter: brightness(1); }
 }
 
 @keyframes boot-mark-flicker {
@@ -174,9 +177,9 @@
 }
 
 @keyframes boot-mark-lock {
-  0% { transform: translateX(-2px); }
-  50% { transform: translateX(2px); filter: saturate(1.2); }
-  100% { transform: translateX(0); filter: none; }
+  0% { transform: translate(calc(var(--boot-mark-x) - 2px), 0); }
+  50% { transform: translate(calc(var(--boot-mark-x) + 2px), 0); filter: saturate(1.2); }
+  100% { transform: translate(var(--boot-mark-x), 0); filter: none; }
 }
 
 @keyframes boot-wordmark-slide {
@@ -221,15 +224,17 @@
 
 @media (max-width: 700px) {
   .boot-stage {
-    height: 190px;
+    width: 94vw;
+    height: 210px;
   }
 
   .boot-mark {
-    width: 125px;
+    --boot-mark-x: -92px;
+    width: 150px;
   }
 
   .boot-wordmark {
-    left: calc(50% + 15px);
+    left: calc(50% + 18px);
     font-size: clamp(1.45rem, 8vw, 2.7rem);
   }
 
