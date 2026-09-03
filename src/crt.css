@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&display=swap');
 
+:root {
+  --crt-scanline-opacity: 0.12;
+  --crt-vignette-opacity: 0.35;
+  --crt-jitter-x: 1px;
+  --crt-jitter-y: 1px;
+  --crt-jitter-duration: 120ms;
+  --crt-interference-opacity: 0.18;
+  --crt-interference-height: 80px;
+}
+
 /* CRT layer: visible but intentionally restrained */
 .site-shell::before,
 .site-shell::after {
@@ -21,6 +31,17 @@
   );
   opacity: .65;
   mix-blend-mode: screen;
+  animation: crt-scanlines 0.8s linear infinite;
+}
+
+@keyframes crt-scanlines {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 -4px;
+  }
 }
 
 /* CRT vignette / slight phosphor falloff */
