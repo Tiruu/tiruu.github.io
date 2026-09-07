@@ -1,11 +1,21 @@
-/* Project modal image framing: show screenshots completely and keep them centered. */
+/* Project modal: stack the screenshot above the case study and keep it fully visible. */
+.project-modal-card {
+  display: block;
+}
+
 .modal-image {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100%;
+  width: 100%;
+  height: 340px;
+  min-height: 280px;
+  max-height: 420px;
   overflow: hidden;
   background: #101820;
+  border-right: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 18px;
 }
 
 .modal-image img {
@@ -21,13 +31,16 @@
 @media (max-width: 760px) {
   .project-modal {
     padding: 12px;
-    align-items: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .project-modal-card {
     display: block;
     width: 100%;
     max-height: calc(100vh - 24px);
+    margin: 0 auto;
     overflow-y: auto;
     overflow-x: hidden;
   }
