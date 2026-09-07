@@ -1,96 +1,92 @@
-# Tiruu — Portfolio (V3)
+# Lino Thebault — Portfolio
 
-Portfolio personnel de Lino Thebault (alias Tiruu), construit avec React, TypeScript et Vite.
+Personal portfolio website for **Lino Thebault**, junior web developer and GameWeb graduate.
 
-Ce dépôt contient la version 3 du site portfolio : orientation professionnelle pour les projets web/IT, avec des sections séparées pour les jeux et la création 3D qui renvoient respectivement vers itch.io et ArtStation.
+The site brings together my web development, IT and game development projects in one place.
 
----
+## Sections
 
-## Démo
+The portfolio focuses on three areas:
 
-Le site est publié via GitHub Pages pour ce dépôt. En local, lancez le serveur de développement (voir ci-dessous) pour prévisualiser.
+- Web / application development
+- Game development
+- 3D / game art
 
-https://tiruu.github.io/
+It is designed to show both technical skills and completed projects rather than presenting only a list of technologies.
 
----
-
-## Tech
+## Tech stack
 
 - React
 - TypeScript
 - Vite
-- CSS (styles personnalisés)
+- CSS
+- Git / GitHub
+- GitHub Pages
 
----
+## Development
 
-## Prérequis
-
-- Node.js (16+ recommandé)
-- npm ou yarn
-
----
-
-## Lancer en local
-
-Ouvrez un terminal puis :
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-Le site sera disponible à l'adresse indiquée par Vite (par défaut http://localhost:5173).
-
----
-
-## Build
-
-Pour construire les fichiers de production :
+Build the production version:
 
 ```bash
 npm run build
 ```
 
-Le build génère le répertoire `dist/` prêt à être servi.
+Preview the production build:
 
----
+```bash
+npm run preview
+```
 
-## Déploiement
+## Deployment
 
-Un workflow GitHub Actions s'occupe de construire `dist/` et de publier sur GitHub Pages automatiquement lorsqu'il est déclenché (push sur la branche par défaut). Si vous modifiez la configuration du workflow, vérifiez la branche par défaut du dépôt et les secrets nécessaires.
+The portfolio is deployed with GitHub Pages.
 
----
+The production build is generated with Vite and deployed automatically through GitHub Actions.
 
-## Contenu & images
+## Project structure
 
-Les visuels SVG actuellement inclus sont des placeholders à des fins de direction artistique. Ils peuvent être remplacés par des captures d'écran ou images finales sans modifier la structure React. Remplacez simplement les fichiers correspondants dans le dossier des assets (par exemple `src/assets/` ou `public/` selon l'organisation du projet).
+```text
+src/
+├── components/
+├── data/
+├── assets/
+└── ...
+```
 
----
+The exact structure may evolve as the portfolio is updated.
 
-## Personnalisation rapide
+## Purpose
 
-- Mettez à jour votre nom, bio et les liens de réseaux dans les composants de header/footer.
-- Pour ajouter un projet : créez une nouvelle entrée dans la liste des projets (fichier de données ou composant) et ajoutez les visuels associés dans le dossier des assets.
+The portfolio is not intended to replace the CV.
 
----
+Its role is to let a recruiter, developer or potential client quickly see:
 
-## Contribution
+- what I build
+- how I work
+- which technologies I use
+- what I have actually shipped
+- my game development background
 
-Ce dépôt est principalement une vitrine personnelle. Pour des contributions externes : ouvrez une issue pour proposer une modification, et je considérerai les PRs selon la nature du changement.
+## Links
 
----
+- [Portfolio](https://tiruu.github.io)
+- [GitHub](https://github.com/Tiruu)
+- [itch.io](https://tiruuslow.itch.io)
 
-## Licence
+## About
 
-Ce portfolio est fourni tel quel. Ajouter ici la licence si vous souhaitez en choisir une (MIT, CC-BY, etc.).
+I'm a junior developer with a **BUT MMI — GameWeb** background.
 
----
-
-## Contact
-
-- Profil GitHub : https://github.com/Tiruu
-- Mail/profil professionnel : voir la section contact du site
-
----
-
-Bonne visite — et n'hésitez pas à demander si vous voulez que j'adapte le README (ajout d'exemples, badges CI, instructions spécifiques de déploiement, etc.).
+I currently focus on web and application development while continuing to build games and interactive projects on the side.
