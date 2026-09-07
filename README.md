@@ -1,18 +1,43 @@
 # Lino Thebault — Portfolio
 
-Personal portfolio website for **Lino Thebault**, junior web developer and GameWeb graduate.
+Personal portfolio website for **Lino Thebault**, junior web developer with a **BUT MMI GameWeb** background.
 
-The site brings together my web development, IT and game development projects in one place.
+The portfolio brings together my **web development, application development and game development projects**, with a focus on what I have actually built and shipped.
 
-## Sections
+## What the portfolio shows
 
-The portfolio focuses on three areas:
+The site is organized around three areas:
 
-- Web / application development
-- Game development
-- 3D / game art
+- **Web & application development** — personal and professional projects
+- **Game development** — published games and game jam projects
+- **3D & game art** — modelling, assets and visual experimentation
 
-It is designed to show both technical skills and completed projects rather than presenting only a list of technologies.
+Rather than presenting only a list of technologies, the portfolio gives context around selected projects: the problem, what I built and what the project demonstrates.
+
+## Featured projects
+
+### Ultra Stick Map
+
+Community mapping web application built with **React, TypeScript, Supabase and MapLibre**.
+
+The project combines a modern front-end stack with authentication, user profiles, contributions and map-based data.
+
+- Live application: https://ultra-stick-map.vercel.app
+- Repository: https://github.com/Tiruu/ultra-stick-map
+
+### Gestion des réservations — VandB
+
+Real-world internal web application developed for a V&B store to improve the management of draft beer dispenser reservations and equipment.
+
+Built from the initial business need with **HTML, CSS, JavaScript, PHP, SQL and XAMPP**.
+
+- Repository: https://github.com/Tiruu/vandb-reservation
+
+### Game development
+
+The portfolio also showcases games developed with **Unity, C# and Godot**, including published projects and game jam work.
+
+- Games: https://tiruuslow.itch.io/
 
 ## Tech stack
 
@@ -69,24 +94,28 @@ The exact structure may evolve as the portfolio is updated.
 
 ## Purpose
 
-The portfolio is not intended to replace the CV.
+The portfolio complements my CV rather than replacing it.
 
-Its role is to let a recruiter, developer or potential client quickly see:
+Its purpose is to let a recruiter, developer or potential client quickly understand:
 
 - what I build
-- how I work
+- how I approach projects
 - which technologies I use
 - what I have actually shipped
-- my game development background
+- my web development and game development background
 
 ## Links
 
-- [Portfolio](https://tiruu.github.io)
-- [GitHub](https://github.com/Tiruu)
-- [itch.io](https://tiruuslow.itch.io)
+- Portfolio: https://tiruu.github.io
+- GitHub: https://github.com/Tiruu
+- LinkedIn: https://www.linkedin.com/in/lino-thebault-226b9b225
+- itch.io: https://tiruuslow.itch.io/
+- ArtStation: https://www.artstation.com/tiruu
 
 ## About
 
 I'm a junior developer with a **BUT MMI — GameWeb** background.
 
-I currently focus on web and application development while continuing to build games and interactive projects on the side.
+I currently focus on **web and application development** while continuing to build games and interactive projects on the side.
+
+I'm looking for a junior opportunity in **web development or IT**, where I can contribute to real projects, keep learning and gain experience working within a development team.
