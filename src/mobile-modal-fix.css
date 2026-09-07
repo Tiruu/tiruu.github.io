@@ -28,6 +28,30 @@
   object-fit: contain;
 }
 
+/* Custom scrollbar for the project modal. */
+.project-modal-card {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) rgba(255, 255, 255, 0.06);
+}
+
+.project-modal-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-modal-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.project-modal-card::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border: 2px solid var(--panel);
+  border-radius: 999px;
+}
+
+.project-modal-card::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}
+
 @media (max-width: 760px) {
   .project-modal {
     padding: 12px;
