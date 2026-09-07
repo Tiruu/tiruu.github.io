@@ -62,7 +62,7 @@ export const projects: Project[] = [
     featured: true,
     links: [{
         label: "Voir le code",
-        href: "https://github.com/Tiruu/ultra-stick-map",
+        href: "https://github.com/Tiruu/vandb-reservation",
       },],
     caseStudy: {
       context:
