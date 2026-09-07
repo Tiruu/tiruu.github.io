@@ -23,7 +23,7 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Vite", "Supabase", "MapLibre", "Docker", "Git/GitHub"],
     image: "/assets/project-map.png",
     featured: true,
-    links: [{ label: "Ouvrir l’application", href: "https://ultra-auxerre-map.vercel.app" }],
+    links: [{ label: "Ouvrir l’application", href: "https://ultra-stick-map.vercel.app" }],
     caseStudy: {
       context: "Un projet personnel parti d’une idée de carte communautaire. Le périmètre s’est progressivement transformé en véritable application web avec utilisateurs, données et contributions.",
       built: "J’ai développé l’interface et la logique applicative autour de React et TypeScript, avec Vite pour le build, Supabase pour les données et l’authentification, MapLibre pour la cartographie et Docker dans le workflow de développement.",
