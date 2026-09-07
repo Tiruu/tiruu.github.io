@@ -60,10 +60,12 @@ export const projects: Project[] = [
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "SQL", "XAMPP"],
     image: "/assets/project-vandb.png",
     featured: true,
-    links: [{
+    links: [
+      {
         label: "Voir le code",
-        href: "https://github.com/Tiruu/ultra-stick-map",
-      },],
+        href: "https://github.com/Tiruu/vandb-reservation",
+      },
+    ],
     caseStudy: {
       context:
         "En magasin, le suivi des réservations de tireuses demandait un outil plus adapté au fonctionnement quotidien. J’ai transformé ce besoin concret en application interne.",
@@ -81,7 +83,9 @@ export const projects: Project[] = [
       "Création d’un jeu vidéo interactif pour l’Union Départementale des Sapeurs-Pompiers de l’Yonne, avec développement sous Unity, création d’éléments 3D et réalisation du site web associé.",
     technologies: ["Unity", "C#", "Blender", "HTML", "CSS", "JavaScript"],
     image: "/assets/project-udsp.png",
-    links: [{ label: "Voir le projet", href: "https://udsp.sdis89.fr/" }],
+    links: [
+      { label: "Voir le projet", href: "https://udsp.sdis89.fr/" }
+    ],
     caseStudy: {
       context:
         "Projet réalisé en stage pour l’UDSP 89, avec un objectif à la fois interactif et communicant.",
